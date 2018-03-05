@@ -22,14 +22,12 @@ body{
 }
 
 header{
-	// grid-column: 2 / span 1;
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100px;
 }
-
 .contenedor_cabecera{
 	height: 100%;
 	display: flex;
@@ -56,7 +54,6 @@ header{
 }
 
 .navegacion_lateral{
-	// grid-row: 1 / span 2;
 	position: fixed;
 	width: 200px;
 	height: 100vh;
