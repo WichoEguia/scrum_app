@@ -30,5 +30,12 @@
 				Equipo
 			</a>
 		</li>
+		<hr>
+		<li>
+			<a href="#" class="navegacion_item">
+				<i class="fa fa-plus"></i>
+				Agregar Historia
+			</a>
+		</li>
 	</ul>
 </aside>

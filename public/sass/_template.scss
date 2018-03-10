@@ -116,6 +116,12 @@ header{
 			background: darken($navegacion_lateral, 3);
 		}
 	}
+
+	hr{
+		width: 80%;
+		margin: 10px auto;
+		border: .3px solid lighten($navegacion_lateral, 40);
+	}
 }
 
 .panel_opciones_usuario{

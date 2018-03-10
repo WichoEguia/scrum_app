@@ -122,6 +122,12 @@ header {
   background: #20212c;
 }
 
+.navegacion_lateral hr {
+  width: 80%;
+  margin: 10px auto;
+  border: 0.3px solid #8287a5;
+}
+
 .panel_opciones_usuario {
   position: absolute;
   width: 250px;
