@@ -1,0 +1,17 @@
+.scrum_board{
+	width: 100%;
+	height: 100%;
+	display: grid;
+	grid-template-columns: repeat(4, auto);
+	grid-template-rows: auto;
+}
+
+.columna_scrum_board:not(:last-child){
+	border-right: .5px solid lighten($font_color, 50);
+}
+
+.titulo_columna-scrum{
+	color: $main_color;
+	font-size: 1.5rem;
+	margin-left: 10px;
+}

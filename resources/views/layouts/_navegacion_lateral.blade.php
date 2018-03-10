@@ -1,4 +1,6 @@
-<aside class="navegacion_lateral">
+<aside class="navegacion_lateral activo">
+	<i class="toggle_navegacion icono_navegacion fas fa-times"></i>
+
 	<div class="encabezado_navegacion">
 		<p><span>DS</span><span>LAB</span></p>
 	</div>
