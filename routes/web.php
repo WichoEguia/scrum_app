@@ -11,6 +11,5 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', "HistoriaController@index");
+Route::get('/nuevo/historia', 'HistoriaController@create');
