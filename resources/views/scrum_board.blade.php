@@ -17,4 +17,9 @@
 			<p class="titulo_columna-scrum">Terminado</p>
 		</div>
 	</div>
+
+	<script type="text/javascript">
+		var historias = {!! $historias !!};
+		console.log(historias);
+	</script>
 @endsection

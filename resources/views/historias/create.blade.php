@@ -2,7 +2,9 @@
 @section('titulo_vista', 'Nueva Historia')
 
 @section('contenedor_principal')
-	<form class="formulario_historias" action="index.html" method="post">
+	<p class="titulo_fomulario_historia">Nueva Historia</p>
+
+	<form class="formulario_historias" action="/historias" method="post">
 		@include('./historias/_form')
 
 		<div class="field">

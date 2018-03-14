@@ -7,7 +7,7 @@
 
 	<ul class="grupo_navegacion_items">
 		<li>
-			<a href="#" class="navegacion_item">
+			<a href="{{ route('raiz') }}" class="navegacion_item">
 				<i class="fa fa-home"></i>
 				Inicio
 			</a>
@@ -32,7 +32,7 @@
 		</li>
 		<hr>
 		<li>
-			<a href="#" class="navegacion_item">
+			<a href="{{ route('nueva_historia') }}" class="navegacion_item">
 				<i class="fa fa-plus"></i>
 				Agregar Historia
 			</a>

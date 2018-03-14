@@ -36,7 +36,8 @@ class HistoriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Historia::create($request->all());
+				return redirect("/");
     }
 
     /**
