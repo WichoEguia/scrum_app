@@ -14,8 +14,9 @@
         <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 				<link rel="stylesheet" href="{{ asset('css/fontawesome-all.css') }}">
 
-				<!-- Javascript -->
+				<!-- Javascript Libraries -->
 				<script src="{{ asset('js/jquery.js') }}" charset="utf-8"></script>
+				<script src="{{ asset('js/jquery-ui.js') }}" charset="utf-8"></script>
     </head>
     <body>
 				@include('layouts/_cabecera')

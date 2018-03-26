@@ -10,8 +10,15 @@
 	border-right: .5px solid lighten($font_color, 50);
 }
 
+.columna_scrum_board{
+	padding: 0 10px;
+}
+
 .titulo_columna-scrum{
 	color: $main_color;
 	font-size: 1.5rem;
-	margin-left: 10px;
+}
+
+.tarjeta_historia{
+	@include box-shadow(1);
 }

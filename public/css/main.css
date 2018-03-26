@@ -178,7 +178,6 @@ header {
 .contenedor_principal {
   grid-column: 2 / span 1;
   grid-row: 2 / span 1;
-  padding: 0 10px 10px 10px;
   transition: all .3s;
 }
 
@@ -200,10 +199,17 @@ header {
   border-right: 0.5px solid #ababab;
 }
 
+.columna_scrum_board {
+  padding: 0 10px;
+}
+
 .titulo_columna-scrum {
   color: #FD643B;
   font-size: 1.5rem;
-  margin-left: 10px;
+}
+
+.tarjeta_historia {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 .titulo_fomulario_historia {
