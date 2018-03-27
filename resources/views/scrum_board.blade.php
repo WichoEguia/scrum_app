@@ -3,6 +3,7 @@
 @section('titulo_vista', 'Inicio')
 
 @section('contenedor_principal')
+	<input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
 	<div class="scrum_board">
 		<div class="columna_scrum_board" id="backlog_list">
 			<p class="titulo_columna-scrum">Backlog List</p>

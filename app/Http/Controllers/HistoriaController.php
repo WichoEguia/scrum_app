@@ -84,4 +84,11 @@ class HistoriaController extends Controller
     {
         //
     }
+
+		public function actualiza_estatus_tarea(Request $request)
+		{
+			$historia = Historia::find($request->historia_id);
+			$historia->estatus = $request->estado;
+			$historia->save();
+		}
 }

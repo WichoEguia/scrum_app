@@ -17,6 +17,7 @@
 				<!-- Javascript Libraries -->
 				<script src="{{ asset('js/jquery.js') }}" charset="utf-8"></script>
 				<script src="{{ asset('js/jquery-ui.js') }}" charset="utf-8"></script>
+				<script src="{{ asset('js/sweetalert2.js') }}" charset="utf-8"></script>
     </head>
     <body>
 				@include('layouts/_cabecera')

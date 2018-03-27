@@ -11,7 +11,7 @@ function Board(){
 	}
 
 	var eventos = function(){
-		console.log("hi");
+		// console.log("hi");
 
 		$(".tarjeta_historia").draggable({
 			connectToSortable: ".columna_scrum_board",
@@ -22,6 +22,24 @@ function Board(){
 		$(".columna_scrum_board").droppable({
 			drop: function(event, ui){
 				drop_item($(this), ui.draggable.attr("id"));
+
+				switch ($(this).attr("id")) {
+					case "backlog_list":
+					var estado = "no_iniciado";
+					break;
+					case "por_hacer":
+					var estado = "por_hacer";
+					break;
+					case "iniciado":
+					var estado = "iniciado";
+					break;
+					case "terminado":
+					var estado = "terminado";
+					break;
+				}
+				var historia_id = historias[ui.draggable.attr("id")].id;
+
+				actualiza_estatus_tarea(historia_id, estado);
 			}
 		});
 	}
@@ -73,5 +91,18 @@ function Board(){
 		$("#"+nuevo_padre_id).append(c);
 
 		eventos();
+	}
+
+	var actualiza_estatus_tarea = function(historia_id, estado){
+		$.ajax({
+	    method : "post",
+	    url : base_url + "/actualiza_historia",
+	    async : true,
+	    data : {
+				_token: $('#token').val(),
+				historia_id: historia_id,
+				estado: estado
+			}
+		}).done(function(data){});
 	}
 }
