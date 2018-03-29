@@ -48,11 +48,7 @@ function Board(){
 		historias = historias_;
 		console.log(historias);
 		for (var i = 0; i < historias.length; i++) {
-			c = "";
-			c += "<div class='tarjeta_historia' id='" + i + "'>";
-			c += "	<p>" + historias[i].titulo + "</p>";
-			c += "	<p>" + historias[i].descripcion + "</p>"
-			c += "</div>";
+			c = string_trjeta(i);
 
 			switch (historias[i].estatus) {
 				case "no_iniciado":
@@ -82,11 +78,7 @@ function Board(){
 
 		$("#"+hijo_id).remove();
 
-		c = "";
-		c += "<div class='tarjeta_historia' id='" + hijo_id + "'>";
-		c += "	<p>" + historias[hijo_id].titulo + "</p>";
-		c += "	<p>" + historias[hijo_id].descripcion + "</p>"
-		c += "</div>";
+		c = string_trjeta(hijo_id);
 
 		$("#"+nuevo_padre_id).append(c);
 
@@ -104,5 +96,26 @@ function Board(){
 				estado: estado
 			}
 		}).done(function(data){});
+	}
+
+	var string_trjeta = function(i){
+		c = "";
+		c += "<div class='tarjeta_historia' id='" + i + "'>";
+		c += "	<div class='idhistoria flex'>";
+		c += "		<div class='flex centerX centerY'>";
+		c += "			<p>" + historias[i].id + "</p>";
+		c += "		</div>";
+		c += "	</div>";
+		c += "	<p class='historia_titulo'>" + historias[i].titulo + "</p>";
+		c += "	<div class='historia_descripcion'>";
+		c += "		<p>" + historias[i].descripcion + "</p>";
+		c += "	</div>";
+		c += "	<div class='flex'>";
+		c += "		<p class='importancia'>" + historias[i].importancia + "</p>";
+		c += "		<p class='estimacion'>" + historias[i].estimacion + "</p>";
+		c += "	</div>";
+		c += "</div>";
+
+		return c;
 	}
 }

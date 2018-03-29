@@ -21,22 +21,22 @@ function Template(){
 			$(".navegacion_lateral").toggleClass("activo")
 		});
 
-		$(window).resize(function(){
-			comprobar_navegacion();
-		});
+		// $(window).resize(function(){
+		// 	comprobar_navegacion();
+		// });
 	}
 
-	this.comprobar_navegacion = function(){
-		comprobar_navegacion();
-	}
+	// this.comprobar_navegacion = function(){
+	// 	comprobar_navegacion();
+	// }
 
-	var comprobar_navegacion = function(){
-		var ancho_ventana = $(window).width();
-
-		if(ancho_ventana < 1248){
-			$(".navegacion_lateral").removeClass("activo");
-		}else{
-			$(".navegacion_lateral").addClass("activo");
-		}
-	}
+	// var comprobar_navegacion = function(){
+	// 	var ancho_ventana = $(window).width();
+	//
+	// 	if(ancho_ventana < 1248){
+	// 		$(".navegacion_lateral").removeClass("activo");
+	// 	}else{
+	// 		$(".navegacion_lateral").addClass("activo");
+	// 	}
+	// }
 }

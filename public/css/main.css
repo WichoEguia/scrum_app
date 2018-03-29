@@ -34,12 +34,6 @@ header {
   align-items: center;
 }
 
-@media only screen and (max-width: 1247px) {
-  .toggle_navegacion.icono_navegacion {
-    display: inline-block !important;
-  }
-}
-
 .toggle_navegacion {
   font-size: 1.5rem;
   color: #2b2b2b;
@@ -52,7 +46,6 @@ header {
   right: 10px;
   top: 10px;
   font-size: .8rem;
-  display: none;
 }
 
 .datos_usuario_cabecera {
@@ -83,6 +76,7 @@ header {
   top: 0;
   background: #262835;
   transition: left .3s;
+  z-index: 10;
 }
 
 .navegacion_lateral.activo {
@@ -176,22 +170,16 @@ header {
 }
 
 .contenedor_principal {
-  grid-column: 2 / span 1;
+  grid-column: 1 / span 2;
   grid-row: 2 / span 1;
   transition: all .3s;
-}
-
-@media only screen and (max-width: 1247px) {
-  .contenedor_principal {
-    grid-column: 1 / span 2;
-  }
 }
 
 .scrum_board {
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: repeat(4, auto);
+  grid-template-columns: repeat(4, 25%);
   grid-template-rows: auto;
 }
 
@@ -211,6 +199,38 @@ header {
 .tarjeta_historia {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   margin: 10px 0;
+  background: #fff;
+  padding: 5px;
+}
+
+.tarjeta_historia .historia_descripcion {
+  padding: 5px 0;
+  color: #2b2b2b;
+}
+
+.tarjeta_historia .historia_titulo {
+  color: #535353;
+  font-size: 1.2rem;
+}
+
+.tarjeta_historia .importancia,
+.tarjeta_historia .estimacion,
+.tarjeta_historia .idhistoria {
+  font-size: .8rem;
+}
+
+.tarjeta_historia .estimacion {
+  color: #1050b1;
+  margin-left: 10px;
+}
+
+.tarjeta_historia .importancia {
+  color: #fe8e33;
+}
+
+.tarjeta_historia .idhistoria {
+  color: #148e91;
+  justify-content: flex-end;
 }
 
 .titulo_fomulario_historia {

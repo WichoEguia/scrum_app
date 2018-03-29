@@ -34,11 +34,11 @@ header{
 	align-items: center;
 }
 
-@include mq(desktop, max){
-	.toggle_navegacion.icono_navegacion{
-		display: inline-block !important;
-	}
-}
+// @include mq(desktop, max){
+// 	.toggle_navegacion.icono_navegacion{
+// 		display: inline-block !important;
+// 	}
+// }
 
 .toggle_navegacion{
 	font-size: 1.5rem;
@@ -51,7 +51,7 @@ header{
 		right: 10px;
 		top: 10px;
 		font-size: .8rem;
-		display: none;
+		// display: none;
 	}
 }
 
@@ -81,6 +81,7 @@ header{
 	top: 0;
 	background: $navegacion_lateral;
 	transition: left .3s;
+	z-index: 10;
 
 	&.activo{
 		left: 0;
@@ -162,12 +163,7 @@ header{
 }
 
 .contenedor_principal{
-	grid-column: 2 / span 1;
+	grid-column: 1 / span 2;
 	grid-row: 2 / span 1;
-	// padding: 0 10px 10px 10px;
 	transition: all .3s;
-
-	@include mq(desktop, max){
-		grid-column: 1 / span 2;
-	}
 }

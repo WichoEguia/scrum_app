@@ -33,7 +33,7 @@
 
 				template.setUrl("{{ url("/") }}");
 				template.ev();
-				template.comprobar_navegacion();
+				// template.comprobar_navegacion();
 			});
 		</script>
 </html>

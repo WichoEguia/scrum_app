@@ -1,4 +1,4 @@
-<aside class="navegacion_lateral activo">
+<aside class="navegacion_lateral">
 	<i class="toggle_navegacion icono_navegacion fas fa-times"></i>
 
 	<div class="encabezado_navegacion">
