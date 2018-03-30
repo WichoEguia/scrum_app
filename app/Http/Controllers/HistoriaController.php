@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Historia;
+use Illuminate\Support\Facades\Auth;
 
 class HistoriaController extends Controller
 {
@@ -12,7 +13,7 @@ class HistoriaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
 				$historias = Historia::all();
         return view("./scrum_board", ["historias" => $historias]);
