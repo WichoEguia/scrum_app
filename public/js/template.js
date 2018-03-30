@@ -31,12 +31,17 @@ function Template(){
 	// }
 
 	// var comprobar_navegacion = function(){
-	// 	var ancho_ventana = $(window).width();
+	// 	var url = window.location.href.split("/");
+	// 	url = url[url.length - 1];
 	//
-	// 	if(ancho_ventana < 1248){
-	// 		$(".navegacion_lateral").removeClass("activo");
-	// 	}else{
-	// 		$(".navegacion_lateral").addClass("activo");
+	// 	if (url == 'login' || url == "register") {
+	// 		var ancho_ventana = $(window).width();
+	//
+	// 		if(ancho_ventana < 1248){
+	// 			$(".navegacion_lateral").removeClass("activo");
+	// 		}else{
+	// 			$(".navegacion_lateral").addClass("activo");
+	// 		}
 	// 	}
 	// }
 }
