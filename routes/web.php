@@ -4,9 +4,11 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => ['auth']], function() {
-	Route::get('/', "HistoriaController@index")->name('raiz');
+	Route::get('/scrumboard', "HistoriaController@index")->name('scrum_board');
 	Route::get('/historia/nuevo', 'HistoriaController@create')->name('nueva_historia');
 	Route::post('/historias', 'HistoriaController@store');
 	Route::post('/actualiza_historia', 'HistoriaController@actualiza_estatus_tarea');
-	Route::get('/proyectos/nuevo', 'ProyectoController@create')->name('nuevo_proyecto');
+	Route::get('/proyectos', 'ProyectoController@index')->name('ruta_proyectos');
+	Route::get('/proyecto/nuevo', 'ProyectoController@create')->name('nuevo_proyecto');
+	Route::post('/proyectos', 'ProyectoController@store')->name('guardar_proyecto');
 });

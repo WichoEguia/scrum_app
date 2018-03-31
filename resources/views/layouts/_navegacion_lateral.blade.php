@@ -6,16 +6,16 @@
 	</div>
 
 	<ul class="grupo_navegacion_items">
+	<li>
+		<a href="{{ route('ruta_proyectos') }}" class="navegacion_item">
+			<i class="fas fa-users"></i>
+			Proyectos
+		</a>
+	</li>
 		<li>
-			<a href="{{ route('raiz') }}" class="navegacion_item">
-				<i class="fa fa-home"></i>
-				Inicio
-			</a>
-		</li>
-		<li>
-			<a href="#" class="navegacion_item">
+			<a href="{{ route('scrum_board') }}" class="navegacion_item">
 				<i class="fa fa-table"></i>
-				Task Board
+				Scrum Board
 			</a>
 		</li>
 		<li>
@@ -24,16 +24,16 @@
 				Burndown Chart
 			</a>
 		</li>
-		<li>
-			<a href="#" class="navegacion_item">
-				<i class="fas fa-users"></i>
-				Equipo
-			</a>
-		</li>
 		<hr>
 		<li>
+			<a href="{{ route('nuevo_proyecto') }}" class="navegacion_item">
+				<i class="fa fa-plus nueva_historia"></i>
+				Agregar Proyecto
+			</a>
+		</li>
+		<li>
 			<a href="{{ route('nueva_historia') }}" class="navegacion_item">
-				<i class="fa fa-plus"></i>
+				<i class="fa fa-plus nuevo_proyecto"></i>
 				Agregar Historia
 			</a>
 		</li>

@@ -34,11 +34,9 @@ header{
 	align-items: center;
 }
 
-// @include mq(desktop, max){
-// 	.toggle_navegacion.icono_navegacion{
-// 		display: inline-block !important;
-// 	}
-// }
+.titulo_vista{
+	margin-left: 20px;
+}
 
 .toggle_navegacion{
 	font-size: 1.5rem;
@@ -166,4 +164,12 @@ header{
 	grid-column: 1 / span 2;
 	grid-row: 2 / span 1;
 	transition: all .3s;
+}
+
+.nueva_historia{
+	color: $estimacion !important;
+}
+
+.nuevo_proyecto{
+	color: $importancia !important;
 }

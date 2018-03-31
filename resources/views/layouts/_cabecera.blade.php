@@ -1,6 +1,9 @@
 <header>
 		<div class="contenedor_cabecera">
-				<i class="toggle_navegacion fa fa-bars"></i>
+				<div class="toggle_navegacion">
+					<i class="fa fa-bars"></i>
+					<span class="titulo_vista">@yield('titulo_vista')</span>
+				</div>
 
 				@auth
 					<div class="datos_usuario_cabecera">

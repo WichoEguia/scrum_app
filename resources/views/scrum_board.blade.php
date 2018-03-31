@@ -1,6 +1,5 @@
 @extends('layouts.template_main')
-
-@section('titulo_vista', 'Inicio')
+@section('titulo_vista', 'Scrum Board')
 
 @section('contenedor_principal')
 	<input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">

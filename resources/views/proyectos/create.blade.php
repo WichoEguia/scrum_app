@@ -1,10 +1,8 @@
 @extends('layouts/template_main')
-@section('titulo_vista', 'Nueva Historia')
+@section('titulo_vista', 'Nuevo Proyecto')
 
 @section('contenedor_principal')
-	<p class="titulo_fomulario_historia">Nuevo Proyecto</p>
-
-	<form class="formulario_historias" action="/proyectos" method="post">
+	<form class="formulario_proyectos" action="{{ route('guardar_proyecto') }}" method="post">
 		@include('./proyectos/_form')
 
 		<div class="field">

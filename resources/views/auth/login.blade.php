@@ -3,7 +3,7 @@
 @section('contenedor_principal')
 	<form method="POST" action="{{ route('login') }}">
 		{{ csrf_field() }}
-		
+
 		<div class="field">
 			<label for="email">Correo</label><br>
 			<input id="email" type="email" name="email" value="{{ old('email') }}" autofocus>
@@ -25,8 +25,8 @@
 		</div>
 
 		<div class="field">
-			<label for="remember">Recuerdame</label>
 			<input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+			<label for="remember">Recuerdame</label>
 		</div>
 
 		<div class="field">
