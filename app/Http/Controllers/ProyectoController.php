@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class ProyectoController extends Controller
 {
 		public function index(){
-		  $proyectos = Proyecto::all();
+		  $proyectos = Auth::User()->proyectos;
 			return view('./proyectos/index', ['proyectos' => $proyectos]);
 		}
 
@@ -18,7 +18,8 @@ class ProyectoController extends Controller
     }
 
 		public function store(Request $request){
-			Proyecto::create($request->all());
+			$proyecto = Proyecto::create($request->all());
+			$proyecto->users()->attach(Auth::User());
 			return redirect("/proyectos");
 		}
 }

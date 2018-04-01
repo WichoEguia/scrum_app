@@ -1,0 +1,37 @@
+.foto_proyecto{
+	@include square(80px);
+	border-radius: 10px;
+}
+
+.tarjeta_proyecto{
+	@include box-shadow(1);
+	background: $background_color;
+	padding: 10px;
+	cursor: pointer;
+}
+
+.proyectos_contenedor_xd{
+	width: 90%;
+	height: 100%;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: repeat(4, 25%);
+	grid-template-rows: repeat(3, 120px);
+	grid-row-gap: 10px;
+}
+
+.datos_proyecto{
+	margin-left: 10px;
+	flex-direction: column;
+	justify-content: space-between;
+
+	.descripcion_proyecto{
+		font-size: .9rem;
+		color: $input_text;
+	}
+
+	.no_integrantes_proyecto{
+		font-size: .8rem;
+		color: $main_color;
+	}
+}

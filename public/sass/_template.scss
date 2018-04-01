@@ -173,3 +173,10 @@ header{
 .nuevo_proyecto{
 	color: $importancia !important;
 }
+
+.note{
+	font-size: 1.2rem;
+	color: $input_text;
+	font-weight: lighter;
+	margin: 0 0 20px 50px;
+}

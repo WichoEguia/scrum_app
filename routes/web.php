@@ -1,9 +1,10 @@
 <?php
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
 Route::group(['middleware' => ['auth']], function() {
+	Route::get('/', function(){
+		return redirect('/proyectos');
+	});
 	Route::get('/scrumboard', "HistoriaController@index")->name('scrum_board');
 	Route::get('/historia/nuevo', 'HistoriaController@create')->name('nueva_historia');
 	Route::post('/historias', 'HistoriaController@store');
