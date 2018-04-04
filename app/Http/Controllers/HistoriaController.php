@@ -15,8 +15,12 @@ class HistoriaController extends Controller
      */
     public function index(Request $request)
     {
+				$proyectos = Auth::User()->proyectos;
 				$historias = Historia::all();
-        return view("./scrum_board", ["historias" => $historias]);
+        return view("./scrum_board",[
+					"historias" => $historias,
+					"proyectos" => $proyectos
+				]);
     }
 
     /**

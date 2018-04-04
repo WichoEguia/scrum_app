@@ -334,8 +334,8 @@ input[type="checkbox"]:checked + label::before {
 }
 
 .campo_error {
-  border-color: #FD643B !important;
-  color: #FD643B !important;
+  border-color: #ed3b0b !important;
+  color: #ed3b0b !important;
 }
 
 .field_set > .field {

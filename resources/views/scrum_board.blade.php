@@ -22,11 +22,13 @@
 	<script type="text/javascript">
 		$(document).ready(function(){
 			var historias = {!! $historias !!};
+			var proyectos = {!! $proyectos !!};
 
 			var scrumBoard = new Board();
 			scrumBoard.setUrl("{{ url('/') }}");
 			scrumBoard.ev();
 			scrumBoard.generar_historias(historias);
+			scrumBoard.validaciones_proyectos(proyectos);
 		});
 	</script>
 @endsection
