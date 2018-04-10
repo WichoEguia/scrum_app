@@ -122,7 +122,7 @@ function Board(){
 
 	this.validaciones_proyectos = function(proyectos_, proyecto_id_){
 		proyectos = proyectos_;
-		proyecto_id = proyecto_id_
+		proyecto_id = proyecto_id_;
 		if (!proyectos.length > 0) {
 			swal("Sin Proyectos", "Usted no cuenta con ningun proyecto dado de alta.", "error").then(function(response){
 				window.location.href = base_url + "/proyecto/nuevo";

@@ -43,8 +43,19 @@ class HistoriaController extends Controller
      */
     public function store(Request $request)
     {
-        Historia::create($request->all());
-				return redirect("/");
+				$userdata = Session::get("user");
+        // $historia = Historia::create($request->all());
+				$historia = new Historia();
+				$historia->titulo = $request->titulo;
+				$historia->descripcion = $request->descripcion;
+				$historia->importancia = $request->importancia;
+				$historia->estimacion = $request->estimacion;
+				$historia->notas = $request->notas;
+				$historia->proyecto_id = $userdata["proyecto_id"];
+				$historia->user_id = $userdata["user_id"];
+
+				$historia->save();
+				return redirect("/scrumboard");
     }
 
     /**

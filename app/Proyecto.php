@@ -11,4 +11,8 @@ class Proyecto extends Model
 		public function users(){
 		  return $this->belongsToMany("App\User");
 		}
+
+		public function historias(){
+		  return $this->hasMany("App\Historia");
+		}
 }
