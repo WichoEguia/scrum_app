@@ -271,10 +271,30 @@ label {
 input[type="text"],
 input[type="password"],
 input[type="email"],
+input[type="number"],
 textarea,
 select {
   border: 1px solid #bababa;
   font-size: 1.2rem;
+  color: #535353;
+  outline: none;
+  padding: 5px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  border: 1px solid #bababa;
+  font-size: 1.2rem;
+  color: #535353;
+  outline: none;
+  padding: 5px;
+  width: 300px;
+}
+
+textarea {
+  border: 1px solid #bababa;
+  font-size: .95rem;
   color: #535353;
   outline: none;
   padding: 5px;
@@ -335,7 +355,6 @@ input[type="checkbox"]:checked + label::before {
 
 .campo_error {
   border-color: #ed3b0b !important;
-  color: #ed3b0b !important;
 }
 
 .field_set > .field {

@@ -12,4 +12,5 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('/proyectos', 'ProyectoController@index')->name('ruta_proyectos');
 	Route::get('/proyecto/nuevo', 'ProyectoController@create')->name('nuevo_proyecto');
 	Route::post('/proyectos', 'ProyectoController@store')->name('guardar_proyecto');
+	Route::post('/asociar_proyecto_usuario', 'ProyectoController@asociar_proyecto_usuario');
 });

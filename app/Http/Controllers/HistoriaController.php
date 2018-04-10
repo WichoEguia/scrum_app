@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Historia;
+use Session;
 use Illuminate\Support\Facades\Auth;
 
 class HistoriaController extends Controller
@@ -19,7 +20,8 @@ class HistoriaController extends Controller
 				$historias = Historia::all();
         return view("./scrum_board",[
 					"historias" => $historias,
-					"proyectos" => $proyectos
+					"proyectos" => $proyectos,
+					"session" => Session::get('user')
 				]);
     }
 
@@ -90,8 +92,7 @@ class HistoriaController extends Controller
         //
     }
 
-		public function actualiza_estatus_tarea(Request $request)
-		{
+		public function actualiza_estatus_tarea(Request $request){
 			$historia = Historia::find($request->historia_id);
 			$historia->estatus = $request->estado;
 			$historia->save();

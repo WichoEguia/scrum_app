@@ -15,10 +15,18 @@ function Proyectos(){
 
 		$(".tarjeta_proyecto").click(function(){
 			var id_proyecto = $(this).children(".id_proyecto").val();
-			localStorage.setItem("id_proyecto", id_proyecto);
 
-			var nombre_proyecto = $(".titulo_proyecto").text();
-			swal("Listo", "Seleccionado proyecto " + nombre_proyecto, "success");
+			$.ajax({
+			    method : "POST",
+			    url : base_url + "/asociar_proyecto_usuario",
+			    async : true,
+			    data : {
+						proyecto_id : id_proyecto,
+						_token: $("#token").val()
+					}
+			}).done(function(data){
+				swal("Listo", "Seleccionado proyecto " + data, "success");
+			});
 		});
 
 		$(".formulario_crear_proyectos").submit(function(e){

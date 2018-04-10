@@ -23,12 +23,13 @@
 		$(document).ready(function(){
 			var historias = {!! $historias !!};
 			var proyectos = {!! $proyectos !!};
+			var proyecto_id = {!! $session["proyecto_id"] !!}
 
 			var scrumBoard = new Board();
 			scrumBoard.setUrl("{{ url('/') }}");
 			scrumBoard.ev();
 			scrumBoard.generar_historias(historias);
-			scrumBoard.validaciones_proyectos(proyectos);
+			scrumBoard.validaciones_proyectos(proyectos, proyecto_id);
 		});
 	</script>
 @endsection

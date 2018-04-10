@@ -12,10 +12,30 @@ label{
 input[type="text"],
 input[type="password"],
 input[type="email"],
+input[type="number"],
 textarea,
 select{
 	border: 1px solid #bababa;
 	font-size: 1.2rem;
+	color: $input_text;
+	outline: none;
+	padding: 5px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],{
+	border: 1px solid #bababa;
+	font-size: 1.2rem;
+	color: $input_text;
+	outline: none;
+	padding: 5px;
+	width: 300px;
+}
+
+textarea{
+	border: 1px solid #bababa;
+	font-size: .95rem;
 	color: $input_text;
 	outline: none;
 	padding: 5px;
@@ -70,7 +90,6 @@ input[type="checkbox"]:checked + label::before{
 
 .campo_error{
 	border-color: $error_color !important;
-	color: $error_color !important;
 }
 
 .field_set > .field{

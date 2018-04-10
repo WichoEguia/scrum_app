@@ -4,6 +4,7 @@
 @section('contenedor_principal')
 	<p class="note">Selecciona un proyecto.</p>
 	<div class="proyectos_contenedor_xd">
+		<input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
 		@if (count($proyectos) > 0)
 			@foreach ($proyectos as $proyecto)
 				<div class="tarjeta_proyecto flex">

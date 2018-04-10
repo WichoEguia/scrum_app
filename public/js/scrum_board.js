@@ -120,13 +120,14 @@ function Board(){
 		return c;
 	}
 
-	this.validaciones_proyectos = function(proyectos_){
+	this.validaciones_proyectos = function(proyectos_, proyecto_id_){
 		proyectos = proyectos_;
+		proyecto_id = proyecto_id_
 		if (!proyectos.length > 0) {
 			swal("Sin Proyectos", "Usted no cuenta con ningun proyecto dado de alta.", "error").then(function(response){
 				window.location.href = base_url + "/proyecto/nuevo";
 			});
-		} else if (!localStorage.id_proyecto) {
+		} else if (!proyecto_id) {
 			swal("Selecciona un proyecto", "Para continuar, Selecciona un proyecto", "error").then(function(response){
 				window.location.href = base_url + "/proyectos";
 			});
