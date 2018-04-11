@@ -19,7 +19,7 @@
 			</a>
 		</li>
 		<li>
-			<a href="#" class="navegacion_item">
+			<a href="{{ route('burndown_chart') }}" class="navegacion_item">
 				<i class="far fa-chart-bar"></i>
 				Burndown Chart
 			</a>

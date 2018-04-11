@@ -108,4 +108,14 @@ class HistoriaController extends Controller
 			$historia->estatus = $request->estado;
 			$historia->save();
 		}
+
+		public function burndown_chart(){
+			$estimacion = Auth::User()->historias->sum('estimacion');
+			$cantidad_historias = count(Auth::User()->historias);
+
+	  	return view('/historias/burndown_chart', [
+				'estimacion' => $estimacion,
+				'cantidad_historias' => $cantidad_historias
+			]);
+		}
 }

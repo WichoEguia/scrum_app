@@ -30,4 +30,8 @@ class User extends Authenticatable
 		public function proyectos(){
 		  return $this->belongsToMany("App\Proyecto");
 		}
+
+		public function historias(){
+		  return $this->hasMany('App\Historia');
+		}
 }

@@ -71,4 +71,8 @@ function Historias(){
 
 		return resultado;
 	}
+
+	this.dibuja_grafica = function(estimacion_total, cantidad_historias){
+	
+	}
 }

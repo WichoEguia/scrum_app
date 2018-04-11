@@ -9,6 +9,10 @@ class Historia extends Model
     protected $fillable = ['titulo', 'descripcion', 'importancia', 'estimacion', 'notas'];
 
 		public function proyecto(){
-		  $this->belongsTo("App\Proyecto");
+		  return $this->belongsTo("App\Proyecto");
+		}
+
+		public function user(){
+		  return $this->belongsTo('App\User');
 		}
 }
