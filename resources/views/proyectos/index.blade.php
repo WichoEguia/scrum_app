@@ -2,7 +2,15 @@
 @section('titulo_vista', 'Proyectos')
 
 @section('contenedor_principal')
-	<p class="note">Selecciona un proyecto.</p>
+	<div class="cabecera_proyectos flex centerY">
+		<p>Selecciona un proyecto.</p>
+		<a class="boton" href="{{ route("nuevo_proyecto") }}">
+			<div class="boton_icono">
+				<i class="fas fa-plus"></i>
+				Nuevo Proyecto
+			</div>
+		</a>
+	</div>
 	<div class="proyectos_contenedor_xd">
 		<input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
 		@if (count($proyectos) > 0)

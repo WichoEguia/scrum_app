@@ -198,7 +198,7 @@ header {
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: repeat(4, 25%);
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: auto;
 }
 
@@ -250,6 +250,14 @@ header {
 .tarjeta_historia .idhistoria {
   color: #148e91;
   justify-content: flex-end;
+}
+
+.boton_accion {
+  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+  margin-bottom: 10px;
 }
 
 .titulo_fomulario_historia {
@@ -310,6 +318,18 @@ button,
   padding: 10px;
   border-radius: 3px;
   border: 0;
+}
+
+input[type="submit"].boton_icono,
+button.boton_icono,
+.boton.boton_icono {
+  display: flex;
+}
+
+input[type="submit"].boton_icono i,
+button.boton_icono i,
+.boton.boton_icono i {
+  margin-right: 10px;
 }
 
 input[type="submit"]:hover,
@@ -403,6 +423,11 @@ form {
 .datos_proyecto .no_integrantes_proyecto {
   font-size: .8rem;
   color: #FD643B;
+}
+
+.cabecera_proyectos {
+  justify-content: space-between;
+  margin: 0 20px 10px 20px;
 }
 
 .flex {

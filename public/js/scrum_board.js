@@ -47,7 +47,7 @@ function Board(){
 
 	this.generar_historias = function(historias_){
 		historias = historias_;
-		console.log(historias);
+		// console.log(historias);
 		for (var i = 0; i < historias.length; i++) {
 			c = string_trjeta(i);
 

@@ -51,6 +51,12 @@ button,
 	padding: 10px;
 	border-radius: $radius;
 	border: 0;
+	&.boton_icono{
+		display: flex;
+		i{
+			margin-right: 10px;
+		}
+	}
 	&:hover{
 		background: darken($main_color, 5);
 	}

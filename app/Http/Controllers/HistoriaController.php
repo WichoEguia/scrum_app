@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Historia;
+use App\Proyecto;
 use Session;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,10 +19,11 @@ class HistoriaController extends Controller
     {
 				$proyectos = Auth::User()->proyectos;
 				$historias = Historia::all();
+
         return view("./scrum_board",[
 					"historias" => $historias,
 					"proyectos" => $proyectos,
-					"session" => Session::get('user')
+					"proyecto_id" => Session::get('proyecto_id')
 				]);
     }
 
@@ -43,16 +45,15 @@ class HistoriaController extends Controller
      */
     public function store(Request $request)
     {
-				$userdata = Session::get("user");
-        // $historia = Historia::create($request->all());
+				$sprint = Proyecto::find(Session::get('proyecto_id'))->sprints->sortByDesc('created_at')->first();
 				$historia = new Historia();
 				$historia->titulo = $request->titulo;
 				$historia->descripcion = $request->descripcion;
 				$historia->importancia = $request->importancia;
 				$historia->estimacion = $request->estimacion;
 				$historia->notas = $request->notas;
-				$historia->proyecto_id = $userdata["proyecto_id"];
-				$historia->user_id = $userdata["user_id"];
+				$historia->sprints_id = $sprint->id;
+				$historia->users_id = Session::get('user_id');
 
 				$historia->save();
 				return redirect("/scrumboard");

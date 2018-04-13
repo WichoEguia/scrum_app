@@ -12,7 +12,7 @@ class Proyecto extends Model
 		  return $this->belongsToMany("App\User");
 		}
 
-		public function historias(){
-		  return $this->hasMany("App\Historia");
+		public function sprints(){
+		  return $this->hasMany("App\Sprint");
 		}
 }

@@ -2,7 +2,17 @@
 @section('titulo_vista', 'Scrum Board')
 
 @section('contenedor_principal')
-	<input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
+
+	<div class="boton_accion">
+		<a class="boton" href="{{ route("nueva_historia") }}">
+			<div class="boton_icono">
+				<i class="fas fa-plus"></i>
+				Nueva Historia
+			</div>
+		</a>
+		<input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
+	</div>
+
 	<div class="scrum_board">
 		<div class="columna_scrum_board" id="backlog_list">
 			<p class="titulo_columna-scrum">Backlog List</p>
@@ -23,7 +33,7 @@
 		$(document).ready(function(){
 			var historias = {!! $historias !!};
 			var proyectos = {!! $proyectos !!};
-			var proyecto_id = {!! $session["proyecto_id"] !!}
+			var proyecto_id = {!! $proyecto_id !!};
 
 			var scrumBoard = new Board();
 			scrumBoard.setUrl("{{ url('/') }}");

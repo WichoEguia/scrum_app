@@ -25,11 +25,8 @@ class ProyectoController extends Controller
 		}
 
 		public function asociar_proyecto_usuario(Request $request){
-		  $userdata = [
-				'user_id' => Auth::User()->id,
-				'proyecto_id' => $request->proyecto_id
-			];
-			Session::put('user', $userdata);
+			Session::put('user_id', Auth::User()->id);
+			Session::put('proyecto_id', $request->proyecto_id);
 
 			return Proyecto::find($request->proyecto_id)->nombre;
 		}

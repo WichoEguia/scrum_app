@@ -24,17 +24,10 @@
 				Burndown Chart
 			</a>
 		</li>
-		<hr>
 		<li>
-			<a href="{{ route('nuevo_proyecto') }}" class="navegacion_item">
-				<i class="fa fa-plus nueva_historia"></i>
-				Agregar Proyecto
-			</a>
-		</li>
-		<li>
-			<a href="{{ route('nueva_historia') }}" class="navegacion_item">
-				<i class="fa fa-plus nuevo_proyecto"></i>
-				Agregar Historia
+			<a href="{{ route('burndown_chart') }}" class="navegacion_item">
+				<i class="fas fa-cog"></i>
+				Duración Sprints
 			</a>
 		</li>
 	</ul>
