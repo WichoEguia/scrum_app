@@ -34,8 +34,14 @@ header{
 	align-items: center;
 }
 
-.titulo_vista{
+.titulo--proyecto{
 	margin-left: 20px;
+	flex-direction: column;
+
+	.nombre_proyecto{
+		font-size: 1.2rem;
+		color: $input_text;
+	}
 }
 
 .toggle_navegacion{

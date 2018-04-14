@@ -133,7 +133,7 @@ function Board(){
 			});
 		} else if (!historias.length > 0) {
 			swal("Sin Historias", "Para continuar debes dar de alta alguna historia de usuario", "error").then(function(response){
-				window.location.href = base_url + "/historia/nuevo";
+				// window.location.href = base_url + "/historia/nuevo";
 			});
 		}
 	}

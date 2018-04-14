@@ -56,6 +56,14 @@ class HistoriaController extends Controller
 				$historia->users_id = Session::get('user_id');
 
 				$historia->save();
+
+				$historias = Historia::all()->where('sprints_id', $sprint->id);
+				if (count($historias) == 1) {
+					$sprint->estatus = 'activo';
+				}
+				$sprint->puntos_esfuerzo += $request->estimacion;
+				$sprint->save();
+				
 				return redirect("/scrumboard");
     }
 

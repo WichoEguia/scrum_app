@@ -1,8 +1,11 @@
 <header>
 		<div class="contenedor_cabecera">
-				<div class="toggle_navegacion">
+				<div class="toggle_navegacion flex centerY">
 					<i class="fa fa-bars"></i>
-					<span class="titulo_vista">@yield('titulo_vista')</span>
+					<div class="titulo--proyecto flex">
+						<span class="titulo_vista">@yield('titulo_vista')</span>
+						<span class="nombre_proyecto">Proyecto: {{ Session::get('proyecto_nombre') }}</span>
+					</div>
 				</div>
 
 				@auth
