@@ -52,8 +52,8 @@ class HistoriaController extends Controller
 				$historia->importancia = $request->importancia;
 				$historia->estimacion = $request->estimacion;
 				$historia->notas = $request->notas;
-				$historia->sprints_id = $sprint->id;
-				$historia->users_id = Session::get('user_id');
+				$historia->sprint_id = $sprint->id;
+				$historia->user_id = Session::get('user_id');
 
 				$historia->save();
 
@@ -63,7 +63,7 @@ class HistoriaController extends Controller
 				}
 				$sprint->puntos_esfuerzo += $request->estimacion;
 				$sprint->save();
-				
+
 				return redirect("/scrumboard");
     }
 

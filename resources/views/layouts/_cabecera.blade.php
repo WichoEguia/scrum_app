@@ -1,11 +1,17 @@
 <header>
 		<div class="contenedor_cabecera">
 				<div class="toggle_navegacion flex centerY">
-					<i class="fa fa-bars"></i>
-					<div class="titulo--proyecto flex">
+					@auth
+						<i class="fa fa-bars"></i>
+						<div class="titulo--proyecto flex">
+							<span class="titulo_vista">@yield('titulo_vista')</span>
+							<span class="nombre_proyecto">Proyecto: {{ Session::get('proyecto_nombre') }}</span>
+						</div>
+					@endauth
+
+					@guest
 						<span class="titulo_vista">@yield('titulo_vista')</span>
-						<span class="nombre_proyecto">Proyecto: {{ Session::get('proyecto_nombre') }}</span>
-					</div>
+					@endguest
 				</div>
 
 				@auth
@@ -19,6 +25,13 @@
 							</div>
 					</div>
 				@endauth
+
+				@guest
+					<div class="enlaces_login">
+						<a href="{{ route('login') }}">Entrar</a>
+						<a href="{{ route('register') }}">Registrarse</a>
+					</div>
+				@endguest
 		</div>
 </header>
 

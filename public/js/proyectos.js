@@ -25,7 +25,9 @@ function Proyectos(){
 						_token: $("#token").val()
 					}
 			}).done(function(data){
-				swal("Listo", "Seleccionado proyecto " + data, "success");
+				swal("Listo", "Seleccionado proyecto " + data, "success").then(function(r){
+					$(".nombre_proyecto").text("Proyecto: " + data);
+				});
 			});
 		});
 

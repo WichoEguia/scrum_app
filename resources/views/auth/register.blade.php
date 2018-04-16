@@ -1,12 +1,13 @@
-@extends('layouts.template_main')
+@extends('layouts.template_login')
+@section('titulo_vista', 'Registrarse')
 
 @section('contenedor_principal')
 	<form method="POST" action="{{ route('register') }}">
 		{{ csrf_field() }}
-		
+
 		<div class="field">
 			<label for="name">Nombre</label><br>
-			<input id="name" type="name" name="name" value="{{ old('name') }}" autofocus>
+			<input id="name" type="text" name="name" value="{{ old('name') }}" autofocus>
 			@if ($errors->has('name'))
 				<span class="invalid-feedback">
 					<strong>{{ $errors->first('name') }}</strong>

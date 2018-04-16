@@ -1,4 +1,5 @@
-@extends('layouts.template_main')
+@extends('layouts.template_login')
+@section('titulo_vista', 'Entrar')
 
 @section('contenedor_principal')
 	<form method="POST" action="{{ route('login') }}">
