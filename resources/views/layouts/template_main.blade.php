@@ -7,9 +7,6 @@
 
         <title>Scrum - @yield('titulo_vista')</title>
 
-        <!-- Fonts -->
-				<link rel="stylesheet" href="{{ 'css/open_sans.css' }}">
-
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 				<link rel="stylesheet" href="{{ asset('css/fontawesome-all.css') }}">

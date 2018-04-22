@@ -52,20 +52,20 @@ function Board(){
 			c = string_trjeta(i);
 
 			switch (historias[i].estatus) {
-				case "no_iniciado":
-				$("#backlog_list").append(c);
+				case "to_do":
+				$("#to_do").append(c);
 				break;
 
-				case "por_hacer":
-				$("#por_hacer").append(c);
+				case "doing":
+				$("#doing").append(c);
 				break;
 
-				case "iniciado":
-				$("#iniciado").append(c);
+				case "testing":
+				$("#testing").append(c);
 				break;
 
-				case "terminado":
-				$("#terminado").append(c);
+				case "done":
+				$("#done").append(c);
 				break;
 			}
 		}
