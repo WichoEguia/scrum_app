@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Proyecto extends Model
 {
-    protected $fillable = ['nombre', 'descripcion', 'duracion_sprints', 'scrum_master'];
+    protected $fillable = ['nombre', 'descripcion', 'scrum_master'];
 
 		public function users(){
 		  return $this->belongsToMany("App\User");

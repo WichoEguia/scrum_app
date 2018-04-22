@@ -113,7 +113,7 @@ function Board(){
 		c += "	</div>";
 		c += "	<div class='flex'>";
 		c += "		<p class='importancia'>" + historias[i].importancia + "</p>";
-		c += "		<p class='estimacion'>" + historias[i].estimacion + "</p>";
+		c += "		<p class='estimacion'>" + (historias[i].estimacion == "0.5" ? "1/2" : historias[i].estimacion) + "</p>";
 		c += "	</div>";
 		c += "</div>";
 

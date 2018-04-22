@@ -22,7 +22,7 @@
 		<select id="historia_estimacion" name="estimacion">
 			<option selected disabled>Selecciona</option>
 			@for ($i=0; $i < count($opciones); $i++)
-				<option value="{{ $opciones[$i] }}">
+				<option value="{{ $opciones[$i] == "1/2" ? "0.5" : $opciones[$i] }}">
 					{{ $opciones[$i] }}
 				</option>
 			@endfor
