@@ -223,6 +223,8 @@ header {
 .titulo_columna-scrum {
   color: #FD643B;
   font-size: 1.5rem;
+  font-weight: lighter;
+  border-bottom: 1px solid #FD643B;
 }
 
 .tarjeta_historia {

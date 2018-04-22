@@ -25,17 +25,17 @@ function Board(){
 				drop_item($(this), ui.draggable.attr("id"));
 
 				switch ($(this).attr("id")) {
-					case "backlog_list":
-					var estado = "no_iniciado";
+					case "to_do":
+					var estado = "to_do";
 					break;
-					case "por_hacer":
-					var estado = "por_hacer";
+					case "doing":
+					var estado = "doing";
 					break;
-					case "iniciado":
-					var estado = "iniciado";
+					case "testing":
+					var estado = "testing";
 					break;
-					case "terminado":
-					var estado = "terminado";
+					case "done":
+					var estado = "done";
 					break;
 				}
 				var historia_id = historias[ui.draggable.attr("id")].id;

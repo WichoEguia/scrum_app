@@ -8,13 +8,14 @@
         <title>Scrum - @yield('titulo_vista')</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,800" rel="stylesheet">
+				<link rel="stylesheet" href="{{ 'css/open_sans.css' }}">
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 				<link rel="stylesheet" href="{{ asset('css/fontawesome-all.css') }}">
 
 				<!-- Javascript Libraries -->
+				<script src="{{ asset('js/moment.js') }}" charset="utf-8"></script>
 				<script src="{{ asset('js/jquery.js') }}" charset="utf-8"></script>
 				<script src="{{ asset('js/jquery-ui.js') }}" charset="utf-8"></script>
 				<script src="{{ asset('js/sweetalert2.js') }}" charset="utf-8"></script>

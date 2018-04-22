@@ -24,6 +24,7 @@ class ProyectoController extends Controller
 			$proyecto->users()->attach(Auth::User());
 
 			Session::put('proyecto_id', $proyecto->id);
+			Session::put('proyecto_nombre', $proyecto->nombre);
 
 			$sprint = new Sprint();
 			$sprint->puntos_esfuerzo = 0;
