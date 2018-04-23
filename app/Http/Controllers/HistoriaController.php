@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Historia;
 use App\Proyecto;
+use App\Sprint;
 use Session;
 use Illuminate\Support\Facades\Auth;
 
@@ -114,12 +115,21 @@ class HistoriaController extends Controller
 		}
 
 		public function burndown_chart(){
-			$estimacion = Auth::User()->historias->sum('estimacion');
-			$cantidad_historias = count(Auth::User()->historias);
+			$puntos_esfuerzo = [];
+			$fechas = [];
+			$historias_terminadas = Auth::User()->historias->where('estatus', 'done');
+			$puntos_esfuerzo_total = Sprint::where('proyecto_id', Session::get('proyecto_id'))->first()->puntos_esfuerzo;
+
+			foreach ($historias_terminadas as $historia) {
+				array_push($puntos_esfuerzo, $historia["estimacion"]);
+				array_push($fechas, $historia["updated_at"]->format('Y-m-d'));
+			}
+			// dd($fechas);
 
 	  	return view('/historias/burndown_chart', [
-				'estimacion' => $estimacion,
-				'cantidad_historias' => $cantidad_historias
+				'puntos_esfuerzo' => json_encode($puntos_esfuerzo),
+				'fechas' => json_encode($fechas),
+				'puntos_esfuerzo_total' => $puntos_esfuerzo_total
 			]);
 		}
 }

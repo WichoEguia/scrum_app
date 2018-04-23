@@ -9,13 +9,19 @@
 	<script src="{{ asset("js/historias.js") }}" charset="utf-8"></script>
 	<script type="text/javascript">
 		$("document").ready(function(){
-			var estimacion = {!! $estimacion !!};
-			var cantidad_historias = {!! $cantidad_historias !!};
+			var puntos_esfuerzo_total = {!! $puntos_esfuerzo_total !!};
+			var puntos_esfuerzo = {!! $puntos_esfuerzo !!};
+			var fechas = {!! $fechas !!};
+			// console.log(puntos_esfuerzo_total);
+			for (var i = 0; i < puntos_esfuerzo.length; i++) {
+				puntos_esfuerzo[i] = puntos_esfuerzo_total - puntos_esfuerzo[i];
+			}
+			console.log(puntos_esfuerzo);
 
 			var historias = new Historias();
 			historias.setUrl("{{ url("/") }}");
 			historias.ev();
-			historias.dibuja_grafica(estimacion, cantidad_historias);
+			historias.dibuja_grafica(puntos_esfuerzo_total, puntos_esfuerzo,fechas);
 		});
 	</script>
 @endsection
