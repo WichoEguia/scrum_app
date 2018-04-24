@@ -13,21 +13,25 @@
 	</div>
 	<div class="proyectos_contenedor_xd">
 		<input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
-		@foreach ($proyectos as $proyecto)
-			<div class="tarjeta_proyecto flex">
-				<input type="hidden" class="id_proyecto" value="{{ $proyecto->id }}">
-				<div class="">
-					<img class="foto_proyecto" src="{{ asset('img/perfil_foto_prueba.jpg') }}" alt="">
-				</div>
-				<div class="datos_proyecto flex">
+		@if (count($proyectos) > 0)
+			@foreach ($proyectos as $proyecto)
+				<div class="tarjeta_proyecto flex">
+					<input type="hidden" class="id_proyecto" value="{{ $proyecto->id }}">
 					<div class="">
-						<p class="titulo_proyecto">{{ $proyecto->nombre }}</p>
-						<p class="descripcion_proyecto">{{ $proyecto->descripcion }}</p>
+						<img class="foto_proyecto" src="{{ asset('img/perfil_foto_prueba.jpg') }}" alt="">
 					</div>
-					<p class="no_integrantes_proyecto">1 integrante</p>
+					<div class="datos_proyecto flex">
+						<div class="">
+							<p class="titulo_proyecto">{{ $proyecto->nombre }}</p>
+							<p class="descripcion_proyecto">{{ $proyecto->descripcion }}</p>
+						</div>
+						<p class="no_integrantes_proyecto">1 integrante</p>
+					</div>
 				</div>
-			</div>
-		@endforeach
+			@endforeach
+		@else
+			<p class="no_historias_msg">No hay historias</p>
+		@endif
 	</div>
 
 	<script src="{{ asset("js/proyectos.js") }}" charset="utf-8"></script>

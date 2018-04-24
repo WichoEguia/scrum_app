@@ -442,6 +442,14 @@ form {
   margin: 0 20px 10px 20px;
 }
 
+.no_historias_msg {
+  margin-top: 100px;
+  color: #878787;
+  font-weight: lighter;
+  font-size: 3rem;
+  text-align: center;
+}
+
 .flex {
   display: flex;
 }

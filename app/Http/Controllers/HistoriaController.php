@@ -19,7 +19,7 @@ class HistoriaController extends Controller
     public function index(Request $request)
     {
 				$proyectos = Auth::User()->proyectos;
-				$historias = Historia::all();
+				$historias = Sprint::where('proyecto_id', Session::get('proyecto_id'))->where('estatus', 'activo')->first()->historias;
 
         return view("./scrum_board",[
 					"historias" => $historias,
