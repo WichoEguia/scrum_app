@@ -25,12 +25,15 @@
 							<p class="titulo_proyecto">{{ $proyecto->nombre }}</p>
 							<p class="descripcion_proyecto">{{ $proyecto->descripcion }}</p>
 						</div>
-						<p class="no_integrantes_proyecto">1 integrante</p>
+						<div class="flex" style="justify-content: space-between;">
+							<p class="no_integrantes_proyecto">1 integrante</p>
+							<i class="agregar_nuevo_integrante_proyecto fas fa-user-plus"></i>
+						</div>
 					</div>
 				</div>
 			@endforeach
 		@else
-			<p class="no_historias_msg">No hay historias</p>
+			<p class="no_historias_msg">No hay proyectos</p>
 		@endif
 	</div>
 

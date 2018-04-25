@@ -425,6 +425,7 @@ form {
   margin-left: 10px;
   flex-direction: column;
   justify-content: space-between;
+  width: 100%;
 }
 
 .datos_proyecto .descripcion_proyecto {
@@ -435,6 +436,11 @@ form {
 .datos_proyecto .no_integrantes_proyecto {
   font-size: .8rem;
   color: #FD643B;
+}
+
+.datos_proyecto .agregar_nuevo_integrante_proyecto {
+  color: #148e91;
+  display: none;
 }
 
 .cabecera_proyectos {
