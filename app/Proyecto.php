@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Session;
 
 class Proyecto extends Model
 {
@@ -14,5 +15,9 @@ class Proyecto extends Model
 
 		public function sprints(){
 		  return $this->hasMany("App\Sprint");
+		}
+
+		public function es_scrum_master(){
+		  return $this->scrum_master == Session::get('user_id');
 		}
 }

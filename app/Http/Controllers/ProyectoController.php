@@ -12,7 +12,9 @@ class ProyectoController extends Controller
 {
 		public function index(){
 		  $proyectos = Auth::User()->proyectos;
-			return view('./proyectos/index', ['proyectos' => $proyectos]);
+			return view('./proyectos/index', [
+				'proyectos' => $proyectos
+			]);
 		}
 
     public function create(){

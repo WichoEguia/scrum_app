@@ -10,11 +10,11 @@ function Proyectos(){
 	}
 
 	var eventos = function(){
-		$(".tarjeta_proyecto").off();
+		$(".datos_proyecto_inner").off();
 		$(".formulario_crear_proyectos").off();
 
-		$(".tarjeta_proyecto").click(function(){
-			var id_proyecto = $(this).children(".id_proyecto").val();
+		$(".datos_proyecto_inner").click(function(){
+			var id_proyecto = $(this).parent().parent().children(".id_proyecto").val();
 
 			$.ajax({
 			    method : "POST",

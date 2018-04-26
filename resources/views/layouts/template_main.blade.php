@@ -10,12 +10,14 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 				<link rel="stylesheet" href="{{ asset('css/fontawesome-all.css') }}">
+				<link rel="stylesheet" href="{{ asset('css/jquery.modal.css') }}">
 
 				<!-- Javascript Libraries -->
 				<script src="{{ asset('js/moment.js') }}" charset="utf-8"></script>
 				<script src="{{ asset('js/jquery.js') }}" charset="utf-8"></script>
 				<script src="{{ asset('js/jquery-ui.js') }}" charset="utf-8"></script>
 				<script src="{{ asset('js/sweetalert2.js') }}" charset="utf-8"></script>
+				<script src="{{ asset('js/jquery.modal.js') }}" charset="utf-8"></script>
     </head>
     <body>
 				@include('layouts/_cabecera')

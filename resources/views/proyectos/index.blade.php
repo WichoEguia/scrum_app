@@ -14,6 +14,8 @@
 	<div class="proyectos_contenedor_xd">
 		<input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
 		@if (count($proyectos) > 0)
+			@include('./proyectos/_modales')
+
 			@foreach ($proyectos as $proyecto)
 				<div class="tarjeta_proyecto flex">
 					<input type="hidden" class="id_proyecto" value="{{ $proyecto->id }}">
@@ -21,13 +23,18 @@
 						<img class="foto_proyecto" src="{{ asset('img/perfil_foto_prueba.jpg') }}" alt="">
 					</div>
 					<div class="datos_proyecto flex">
-						<div class="">
+						<div class="datos_proyecto_inner">
 							<p class="titulo_proyecto">{{ $proyecto->nombre }}</p>
 							<p class="descripcion_proyecto">{{ $proyecto->descripcion }}</p>
 						</div>
 						<div class="flex" style="justify-content: space-between;">
 							<p class="no_integrantes_proyecto">1 integrante</p>
-							<i class="agregar_nuevo_integrante_proyecto fas fa-user-plus"></i>
+
+							@if ($proyecto->es_scrum_master())
+								<a href="#modal_invitar_integrante" rel="modal:open" class="accion_modal">
+									<i class="agregar_nuevo_integrante_proyecto fas fa-user-plus"></i>
+								</a>
+							@endif
 						</div>
 					</div>
 				</div>
