@@ -1,4 +1,10 @@
 <div id="modal_invitar_integrante" class="modal">
-  <p>Thanks for clicking. That felt good.</p>
-  <a href="#" rel="modal:close">Close</a>
+	<p class="titulo_vista">Invitar Usuario</p>
+	<div class="field">
+		<label for="correo_usuario">Correo de invitado</label><br>
+		<input type="text" name="correo_usuario" id="correo_usuario">
+	</div>
+	<div class="field">
+		<button type="button" id="invitar_usuario_proyecto">Invitar</button>
+	</div>
 </div>

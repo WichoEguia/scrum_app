@@ -12,6 +12,7 @@ function Proyectos(){
 	var eventos = function(){
 		$(".datos_proyecto_inner").off();
 		$(".formulario_crear_proyectos").off();
+		$("#invitar_usuario_proyecto").off();
 
 		$(".datos_proyecto_inner").click(function(){
 			var id_proyecto = $(this).parent().parent().children(".id_proyecto").val();
@@ -39,6 +40,22 @@ function Proyectos(){
 				e.preventDefault();
 				swal("Error al enviar", "Llena todos los campos para continuar", "error");
 			}
+		});
+
+		$("#invitar_usuario_proyecto").click(function(){
+			$.ajax({
+		    method : "post",
+		    url : base_url + "/invitar_usuario_proyecto",
+		    async : true,
+		    data : {
+					_token: $('#token').val(),
+					correo_usuario: $("#correo_usuario").val()
+				}
+			}).done(function(data){
+				if (!data.resultado) {
+					swal("Error al enviar", data.mensaje, "error");	
+				}
+			});
 		});
 	}
 
