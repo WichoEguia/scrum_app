@@ -439,7 +439,14 @@ form {
 }
 
 .datos_proyecto .agregar_nuevo_integrante_proyecto {
-  color: #148e91;
+  color: #fff;
+  padding: 3px 5px;
+}
+
+.datos_proyecto .accion_modal.modal_agregar_nuevo_integrante_proyecto {
+  background: #148e91;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 .cabecera_proyectos {

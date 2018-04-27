@@ -40,7 +40,9 @@ class LoginController extends Controller
 
 		public function authenticated($request, $user) {
 				Session::put('user_id', $user->id);
-				Session::put('proyecto_id', $user->proyectos()->first());
-				Session::put('proyecto_nombre', $user->proyectos()->first()->nombre);
+				if (!null == $user->proyectos()->first()) {
+					Session::put('proyecto_id', $user->proyectos()->first());
+					Session::put('proyecto_nombre', $user->proyectos()->first()->nombre);
+				}
     }
 }

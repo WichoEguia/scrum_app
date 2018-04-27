@@ -52,17 +52,21 @@ class ProyectoController extends Controller
 			if (count($usuario) > 0) {
 				$usuario_sesion = Auth::User();
 				if ($usuario[0]->email != $usuario_sesion->email) {
-					$resultado["resultado"] = true;
-
-					$proyecto = Proyecto::find(Session::get('proyecto_id'));
-					$proyecto->users()->attach($usuario[0]);
+					$proyecto = Proyecto::find(Session::get('proyecto_id'))->first();
+					for ($i=0; $i < count($proyecto->users); $i++) {
+						$pase = ($usuario[0]->id != $proyecto->users->get($i)->id) ? true : false;
+					}
+					if ($pase) {
+						$resultado["resultado"] = true;
+						$proyecto->users()->attach($usuario[0]);
+					}	else {
+						$resultado["mensaje"] = "El usuario ya ha sido invitado.";
+					}
 				} else {
 					$resultado["mensaje"] = "No te puedes invitar a ti mismo.";
-					echo var_dump(1);
 				}
 			} else {
 				$resultado["mensaje"] = "El usuario no tiene cuenta en la aplicación";
-				echo var_dump(2);
 			}
 
 			return $resultado;

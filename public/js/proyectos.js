@@ -53,7 +53,9 @@ function Proyectos(){
 				}
 			}).done(function(data){
 				if (!data.resultado) {
-					swal("Error al enviar", data.mensaje, "error");	
+					swal("Error al enviar", data.mensaje, "error");
+				} else {
+					swal("Yay","¡El usuario ya forma parte de tu equipo!","success");
 				}
 			});
 		});

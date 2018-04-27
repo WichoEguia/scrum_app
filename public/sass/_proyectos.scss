@@ -38,7 +38,14 @@
 	}
 
 	.agregar_nuevo_integrante_proyecto{
-		color: $id_historia;
+		color: #fff;
+		padding: 3px 5px;
+	}
+
+	.accion_modal.modal_agregar_nuevo_integrante_proyecto{
+		background: $id_historia;
+		border-radius: 3px;
+		@include box-shadow(1);
 	}
 }
 

@@ -31,7 +31,7 @@
 							<p class="no_integrantes_proyecto">1 integrante</p>
 
 							@if ($proyecto->es_scrum_master())
-								<a href="#modal_invitar_integrante" rel="modal:open" class="accion_modal">
+								<a href="#modal_invitar_integrante" rel="modal:open" class="accion_modal modal_agregar_nuevo_integrante_proyecto">
 									<i class="agregar_nuevo_integrante_proyecto fas fa-user-plus"></i>
 								</a>
 							@endif
