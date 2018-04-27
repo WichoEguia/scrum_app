@@ -59,6 +59,14 @@ class ProyectoController extends Controller
 					if ($pase) {
 						$resultado["resultado"] = true;
 						$proyecto->users()->attach($usuario[0]);
+
+						\DB::table('notificaciones')->insert([
+							"titulo" => "¡Nuevo proyecto!",
+							"descripcion" => "Has sido incluido en el proyecto " . $proyecto->nombre,
+							"estatus" => "no_leido",
+							"user_id" => $usuario[0]->id
+						]);
+
 					}	else {
 						$resultado["mensaje"] = "El usuario ya ha sido invitado.";
 					}
