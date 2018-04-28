@@ -55,7 +55,10 @@ function Proyectos(){
 				if (!data.resultado) {
 					swal("Error al enviar", data.mensaje, "error");
 				} else {
-					swal("Yay","¡El usuario ya forma parte de tu equipo!","success");
+					swal("Yay","¡El usuario ya forma parte de tu equipo!","success").then(function(){
+						$("#correo_usuario").val("");
+						$(".close-modal").click();
+					});
 				}
 			});
 		});

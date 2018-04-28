@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Proyecto;
 use App\Sprint;
 use App\User;
+use App\Notificacion;
 use Session;
 use Illuminate\Support\Facades\Auth;
 
@@ -60,11 +61,12 @@ class ProyectoController extends Controller
 						$resultado["resultado"] = true;
 						$proyecto->users()->attach($usuario[0]);
 
-						\DB::table('notificaciones')->insert([
+						Notificacion::insert([
 							"titulo" => "¡Nuevo proyecto!",
 							"descripcion" => "Has sido incluido en el proyecto " . $proyecto->nombre,
 							"estatus" => "no_leido",
-							"user_id" => $usuario[0]->id
+							"user_id" => $usuario[0]->id,
+							"created_at" => date("Y-m-d")
 						]);
 
 					}	else {

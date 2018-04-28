@@ -15,4 +15,5 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::post('/asociar_proyecto_usuario', 'ProyectoController@asociar_proyecto_usuario');
 	Route::get('/burndown_chart', 'HistoriaController@burndown_chart')->name('burndown_chart');
 	Route::post('/invitar_usuario_proyecto', 'ProyectoController@invitar_usuario_proyecto');
+	Route::post('/actualizar_notificacion', 'MainController@actualizar_notificacion');
 });
