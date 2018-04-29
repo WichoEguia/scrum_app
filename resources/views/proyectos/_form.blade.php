@@ -4,10 +4,10 @@
 
 <div class="field">
 	<label for="proyecto_nombre">Nombre</label><br>
-	<input type="text" name="nombre" id="proyecto_nombre">
+	<input type="text" name="nombre" id="proyecto_nombre" value="{{ isset($proyecto) ? $proyecto->nombre : '' }}">
 </div>
 
 <div class="field">
 	<label for="proyecto_descripcion">Descripción</label><br>
-	<textarea name="descripcion" id="proyecto_descripcion"></textarea>
+	<textarea name="descripcion" id="proyecto_descripcion">{{ isset($proyecto) ? $proyecto->descripcion : '' }}</textarea>
 </div>

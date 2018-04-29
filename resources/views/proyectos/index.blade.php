@@ -35,7 +35,7 @@
 									<a href="#modal_invitar_integrante" rel="modal:open" class="accion_modal accion modal_agregar_nuevo_integrante_proyecto">
 										<i class="agregar_nuevo_integrante_proyecto fas fa-user-plus"></i>
 									</a>
-									<a href="#" class="accion boton_editar_proyecto">
+									<a href="./proyecto/{{ $proyecto->id }}/editar" class="accion boton_editar_proyecto">
 										<i class="editar_proyecto fas fa-pencil-alt"></i>
 									</a>
 									<a href="#modal_eliminar_proyecto" rel="modal:open" class="accion_modal accion modal_eliminar_proyecto">

@@ -38,6 +38,16 @@ class ProyectoController extends Controller
 			return redirect("/proyectos");
 		}
 
+		public function edit(Proyecto $proyecto){
+			return view("./proyectos/edit", ["proyecto" => $proyecto]);
+		}
+
+		public function update(Proyecto $proyecto){
+		  $proyecto->update(request()->all());
+
+			return redirect("/proyectos");
+		}
+
 		public function asociar_proyecto_usuario(Request $request){
 			Session::put('user_id', Auth::User()->id);
 			Session::put('proyecto_id', $request->proyecto_id);
