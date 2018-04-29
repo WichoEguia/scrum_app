@@ -160,7 +160,7 @@ header{
 	position: absolute;
 	width: 250px;
 	right: 10px;
-	top: 100px;
+	top: 80px;
 	background: $navegacion_lateral;
 	display: none;
 	transition: display .5s;
@@ -223,6 +223,11 @@ header{
 		color: $input_text;
 		font-size: .8rem;
 	}
+}
+
+.sin_notificaciones{
+	color: $input_text;
+	font-size: .8rem;
 }
 
 .contenedor_notificacion.leido{

@@ -37,15 +37,38 @@
 		color: $main_color;
 	}
 
-	.agregar_nuevo_integrante_proyecto{
-		color: #fff;
-		padding: 3px 5px;
-	}
+	.acciones_proyecto{
+		.agregar_nuevo_integrante_proyecto,
+		.editar_proyecto,
+		.eliminar_proyecto{
+			color: #fff;
+			padding: 5px 0;
+		}
 
-	.accion_modal.modal_agregar_nuevo_integrante_proyecto{
-		background: $id_historia;
-		border-radius: 3px;
-		@include box-shadow(1);
+		.accion{
+			display: inline-block;
+			width: 30px;
+			margin-left: 10px;
+			text-align: center;
+
+			&.modal_agregar_nuevo_integrante_proyecto{
+				background: $estimacion;
+				border-radius: 3px;
+				@include box-shadow(1);
+			}
+
+			&.boton_editar_proyecto{
+				background: $id_historia;
+				border-radius: 3px;
+				@include box-shadow(1);
+			}
+
+			&.modal_eliminar_proyecto{
+				background: $error_color;
+				border-radius: 3px;
+				@include box-shadow(1);
+			}
+		}
 	}
 }
 

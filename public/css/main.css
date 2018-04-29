@@ -166,7 +166,7 @@ header {
   position: absolute;
   width: 250px;
   right: 10px;
-  top: 100px;
+  top: 80px;
   background: #262835;
   display: none;
   transition: display .5s;
@@ -237,6 +237,11 @@ header {
 }
 
 .contenedor_notificacion.no_leido .fecha_notificacion {
+  color: #535353;
+  font-size: .8rem;
+}
+
+.sin_notificaciones {
   color: #535353;
   font-size: .8rem;
 }
@@ -486,13 +491,34 @@ form {
   color: #FD643B;
 }
 
-.datos_proyecto .agregar_nuevo_integrante_proyecto {
+.datos_proyecto .acciones_proyecto .agregar_nuevo_integrante_proyecto,
+.datos_proyecto .acciones_proyecto .editar_proyecto,
+.datos_proyecto .acciones_proyecto .eliminar_proyecto {
   color: #fff;
-  padding: 3px 5px;
+  padding: 5px 0;
 }
 
-.datos_proyecto .accion_modal.modal_agregar_nuevo_integrante_proyecto {
+.datos_proyecto .acciones_proyecto .accion {
+  display: inline-block;
+  width: 30px;
+  margin-left: 10px;
+  text-align: center;
+}
+
+.datos_proyecto .acciones_proyecto .accion.modal_agregar_nuevo_integrante_proyecto {
+  background: #1050b1;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.datos_proyecto .acciones_proyecto .accion.boton_editar_proyecto {
   background: #148e91;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.datos_proyecto .acciones_proyecto .accion.modal_eliminar_proyecto {
+  background: #ed3b0b;
   border-radius: 3px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }

@@ -31,9 +31,17 @@
 							<p class="no_integrantes_proyecto">1 integrante</p>
 
 							@if ($proyecto->es_scrum_master())
-								<a href="#modal_invitar_integrante" rel="modal:open" class="accion_modal modal_agregar_nuevo_integrante_proyecto">
-									<i class="agregar_nuevo_integrante_proyecto fas fa-user-plus"></i>
-								</a>
+								<div class="acciones_proyecto">
+									<a href="#modal_invitar_integrante" rel="modal:open" class="accion_modal accion modal_agregar_nuevo_integrante_proyecto">
+										<i class="agregar_nuevo_integrante_proyecto fas fa-user-plus"></i>
+									</a>
+									<a href="#" class="accion boton_editar_proyecto">
+										<i class="editar_proyecto fas fa-pencil-alt"></i>
+									</a>
+									<a href="#modal_eliminar_proyecto" rel="modal:open" class="accion_modal accion modal_eliminar_proyecto">
+										<i class="eliminar_proyecto far fa-trash-alt"></i>
+									</a>
+								</div>
 							@endif
 						</div>
 					</div>

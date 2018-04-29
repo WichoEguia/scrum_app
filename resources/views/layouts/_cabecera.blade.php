@@ -61,8 +61,6 @@
 	</div>
 
 	@auth
-		@if (count(Auth::User()->notificaciones))
-			@include('./layouts/_modales', ["notificaciones" => Auth::User()->notificaciones])
-		@endif
+		@include('./layouts/_modales', ["notificaciones" => Auth::User()->notificaciones])
 	@endauth
 </div>
