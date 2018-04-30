@@ -34,11 +34,12 @@
 			var historias = {!! $historias !!};
 			var proyectos = {!! $proyectos !!};
 			var proyecto_id = {!! $proyecto_id !!};
+			var scrum_master = {!! $scrum_master !!}
 
 			var scrumBoard = new Board();
 			scrumBoard.setUrl("{{ url('/') }}");
 			scrumBoard.ev();
-			scrumBoard.generar_historias(historias);
+			scrumBoard.generar_historias(historias, scrum_master);
 			scrumBoard.validaciones_proyectos(proyectos, proyecto_id);
 		});
 	</script>

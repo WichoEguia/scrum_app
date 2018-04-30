@@ -39,8 +39,23 @@
 
 	.importancia,
 	.estimacion,
-	.idhistoria{
+	.idhistoria,
+	i{
 		font-size: .8rem;
+	}
+
+	.acciones_historia{
+		justify-content: space-between;
+		div{
+			a:first-child{
+				color: $id_historia;
+			}
+			
+			a:last-child{
+				margin-left: 10px;
+				color: $error_color;
+			}
+		}
 	}
 
 	.estimacion{

@@ -299,8 +299,22 @@ header {
 
 .tarjeta_historia .importancia,
 .tarjeta_historia .estimacion,
-.tarjeta_historia .idhistoria {
+.tarjeta_historia .idhistoria,
+.tarjeta_historia i {
   font-size: .8rem;
+}
+
+.tarjeta_historia .acciones_historia {
+  justify-content: space-between;
+}
+
+.tarjeta_historia .acciones_historia div a:first-child {
+  color: #148e91;
+}
+
+.tarjeta_historia .acciones_historia div a:last-child {
+  margin-left: 10px;
+  color: #ed3b0b;
 }
 
 .tarjeta_historia .estimacion {

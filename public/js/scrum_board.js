@@ -2,6 +2,7 @@ function Board(){
 	var base_url = "";
 	var historias = [];
 	var proyectos = [];
+	var scrum_master = "";
 
 	this.setUrl = function(url){
 		base_url = url;
@@ -45,8 +46,9 @@ function Board(){
 		});
 	}
 
-	this.generar_historias = function(historias_){
+	this.generar_historias = function(historias_, scrum_master_){
 		historias = historias_;
+		scrum_master = scrum_master_;
 		// console.log(historias);
 		for (var i = 0; i < historias.length; i++) {
 			c = string_trjeta(i);
@@ -111,9 +113,19 @@ function Board(){
 		c += "	<div class='historia_descripcion'>";
 		c += "		<p>" + historias[i].descripcion + "</p>";
 		c += "	</div>";
-		c += "	<div class='flex'>";
-		c += "		<p class='importancia'>" + historias[i].importancia + "</p>";
-		c += "		<p class='estimacion'>" + (historias[i].estimacion == "0.5" ? "1/2" : historias[i].estimacion) + "</p>";
+		c += "	<div class='flex acciones_historia'>";
+		c += "		<div class='flex'>";
+		c += "			<p class='importancia'>" + historias[i].importancia + "</p>";
+		c += "			<p class='estimacion'>" + (historias[i].estimacion == "0.5" ? "1/2" : historias[i].estimacion) + "</p>";
+		c += "		</div>";
+
+		if (scrum_master == 1) {
+			c += "		<div class='flex'>";
+			c += "			<a href='/historia/" + historias[i].id + "/editar'><i class='editar_proyecto fas fa-pencil-alt'></i></a>";
+			c += "			<a href='#'><i class='eliminar_proyecto far fa-trash-alt'></i></a>";
+			c += "		</div>";
+		}
+
 		c += "	</div>";
 		c += "</div>";
 

@@ -24,7 +24,8 @@ class HistoriaController extends Controller
         return view("./scrum_board",[
 					"historias" => $historias,
 					"proyectos" => $proyectos,
-					"proyecto_id" => Session::get('proyecto_id')
+					"proyecto_id" => Session::get('proyecto_id'),
+					"scrum_master" => Proyecto::find(Session::get('proyecto_id'))->es_scrum_master() ? '1' : '0'
 				]);
     }
 
@@ -80,9 +81,9 @@ class HistoriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Historia $historia)
     {
-        //
+      return view('./historias/edit', ['historia' => $historia]);
     }
 
     /**
@@ -92,9 +93,11 @@ class HistoriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Historia $historia)
     {
-        //
+			$historia->update(request()->all());
+
+			return redirect("/scrumboard");
     }
 
     /**
