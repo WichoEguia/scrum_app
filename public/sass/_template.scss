@@ -67,7 +67,30 @@ header{
 
 	img{
 		@include circle(50px);
-		margin-right: 10px;
+	}
+
+	span{
+		margin-left: 10px;
+	}
+
+	.foto_perfil div{
+		@include circle(50px);
+		position: relative;
+
+		&::after{
+			content:attr(data-badge);
+			position:absolute;
+			top:-5px;
+			right:-5px;
+			font-size:.7em;
+			background: $error_color;
+			color:white;
+			width:18px;height:18px;
+			text-align:center;
+			line-height:18px;
+			border-radius:50%;
+			box-shadow:0 0 1px #333;
+		}
 	}
 
 	.boton_opciones_usuario{
@@ -137,7 +160,7 @@ header{
 	position: absolute;
 	width: 250px;
 	right: 10px;
-	top: 100px;
+	top: 80px;
 	background: $navegacion_lateral;
 	display: none;
 	transition: display .5s;
@@ -189,4 +212,31 @@ header{
 	color: $input_text;
 	font-weight: lighter;
 	margin: 0 0 20px 50px;
+}
+
+.contenedor_notificacion.no_leido{
+	margin: 10px 0;
+	padding-left: 15px;
+	box-shadow: inset 10px 0 0 $main_color;
+
+	.fecha_notificacion{
+		color: $input_text;
+		font-size: .8rem;
+	}
+}
+
+.sin_notificaciones{
+	color: $input_text;
+	font-size: .8rem;
+}
+
+.contenedor_notificacion.leido{
+	margin: 10px 0;
+	padding-left: 15px;
+	box-shadow: inset 10px 0 0 $input_text;
+
+	.fecha_notificacion{
+		color: $input_text;
+		font-size: .8rem;
+	}
 }

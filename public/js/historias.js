@@ -72,7 +72,15 @@ function Historias(){
 		return resultado;
 	}
 
-	this.dibuja_grafica = function(estimacion_total, cantidad_historias){
+	this.dibuja_grafica = function(puntos_esfuerzo_total, puntos_esfuerzo,fechas){
+		// var dias = obtener_fechas();
+		console.log(fechas);
+		console.log(puntos_esfuerzo);
+		// var puntos_esfuerzo = array_puntos_esfuerzo(puntos_esfuerzo,fechas);
+		if (puntos_esfuerzo.length == 0) {
+			swal("Sin progreso", "No hay historias finalizadas.", "warning");
+		}
+
 		$(function () {
 		  $('#container').highcharts({
 		    title: {
@@ -88,17 +96,15 @@ function Historias(){
 		        hideDelay: 200
 		      }
 		    },
-		    subtitle: {
-		      text: 'Sprint 1',
-		      x: -20
-		    },
 		    xAxis: {
-		      categories: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6',
-		                   'Day 7', 'Day 8', 'Day 9', 'Day 10']
+					title: {
+		        text: 'Fechas'
+		      },
+					categories: fechas
 		    },
 		    yAxis: {
 		      title: {
-		        text: 'Hours'
+		        text: 'Puntos de esfuerzo'
 		      },
 		      plotLines: [{
 		        value: 0,
@@ -117,19 +123,43 @@ function Historias(){
 		      borderWidth: 0
 		    },
 		    series: [{
-		      name: 'Ideal Burn',
-		      color: 'rgba(255,0,0,0.25)',
-		      lineWidth: 2,
-		      data: [100, 90, 80, 70, 60, 50, 40, 30, 20, 10]
-		    }, {
-		      name: 'Actual Burn',
+		      name: 'Progreso actual',
 		      color: 'rgba(0,120,200,0.75)',
 		      marker: {
 		        radius: 6
 		      },
-		      data: [100, 110, 85, 60, 60, 30, 32, 23, 9, 2]
-		    }]
+		      data: puntos_esfuerzo
+				}/*,{
+					name: 'Ideal Burn',
+		      color: 'rgba(255, 0, 0, 0.75)',
+		      marker: {
+		        radius: 6
+		      },
+		      data: [15,14,13,12,11,10,9,8,7,6,5,4,3,2,1]
+				}*/]
 		  });
 		});
+	}
+
+	var obtener_fechas = function(){
+		var dias = [];
+		var dia = moment().startOf('week');;
+
+		for (i = 0; i < 15; i++) {
+			dias.push(moment(dia.toDate()).format('YYYY-MM-DD'));
+			dia = dia.clone().add(1, 'd');
+		}
+
+		return dias;
+	}
+
+	var array_puntos_esfuerzo = function(puntos_esfuerzo){
+		var arr_puntos_esfuerzo = [];
+
+		for (var i = 1; i <= puntos_esfuerzo; i++) {
+			arr_puntos_esfuerzo.push(i)
+		}
+
+		return arr_puntos_esfuerzo;
 	}
 }

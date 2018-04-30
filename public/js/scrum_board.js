@@ -2,6 +2,7 @@ function Board(){
 	var base_url = "";
 	var historias = [];
 	var proyectos = [];
+	var scrum_master = "";
 
 	this.setUrl = function(url){
 		base_url = url;
@@ -25,17 +26,17 @@ function Board(){
 				drop_item($(this), ui.draggable.attr("id"));
 
 				switch ($(this).attr("id")) {
-					case "backlog_list":
-					var estado = "no_iniciado";
+					case "to_do":
+					var estado = "to_do";
 					break;
-					case "por_hacer":
-					var estado = "por_hacer";
+					case "doing":
+					var estado = "doing";
 					break;
-					case "iniciado":
-					var estado = "iniciado";
+					case "testing":
+					var estado = "testing";
 					break;
-					case "terminado":
-					var estado = "terminado";
+					case "done":
+					var estado = "done";
 					break;
 				}
 				var historia_id = historias[ui.draggable.attr("id")].id;
@@ -45,27 +46,28 @@ function Board(){
 		});
 	}
 
-	this.generar_historias = function(historias_){
+	this.generar_historias = function(historias_, scrum_master_){
 		historias = historias_;
+		scrum_master = scrum_master_;
 		// console.log(historias);
 		for (var i = 0; i < historias.length; i++) {
 			c = string_trjeta(i);
 
 			switch (historias[i].estatus) {
-				case "no_iniciado":
-				$("#backlog_list").append(c);
+				case "to_do":
+				$("#to_do").append(c);
 				break;
 
-				case "por_hacer":
-				$("#por_hacer").append(c);
+				case "doing":
+				$("#doing").append(c);
 				break;
 
-				case "iniciado":
-				$("#iniciado").append(c);
+				case "testing":
+				$("#testing").append(c);
 				break;
 
-				case "terminado":
-				$("#terminado").append(c);
+				case "done":
+				$("#done").append(c);
 				break;
 			}
 		}
@@ -111,9 +113,19 @@ function Board(){
 		c += "	<div class='historia_descripcion'>";
 		c += "		<p>" + historias[i].descripcion + "</p>";
 		c += "	</div>";
-		c += "	<div class='flex'>";
-		c += "		<p class='importancia'>" + historias[i].importancia + "</p>";
-		c += "		<p class='estimacion'>" + historias[i].estimacion + "</p>";
+		c += "	<div class='flex acciones_historia'>";
+		c += "		<div class='flex'>";
+		c += "			<p class='importancia'>" + historias[i].importancia + "</p>";
+		c += "			<p class='estimacion'>" + (historias[i].estimacion == "0.5" ? "1/2" : historias[i].estimacion) + "</p>";
+		c += "		</div>";
+
+		if (scrum_master == 1) {
+			c += "		<div class='flex'>";
+			c += "			<a href='/historia/" + historias[i].id + "/editar'><i class='editar_proyecto fas fa-pencil-alt'></i></a>";
+			c += "			<a href='/historia/" + historias[i].id + "/eliminar'><i class='eliminar_proyecto far fa-trash-alt'></i></a>";
+			c += "		</div>";
+		}
+
 		c += "	</div>";
 		c += "</div>";
 

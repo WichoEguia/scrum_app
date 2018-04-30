@@ -13,21 +13,52 @@
 	</div>
 	<div class="proyectos_contenedor_xd">
 		<input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
-		@foreach ($proyectos as $proyecto)
-			<div class="tarjeta_proyecto flex">
-				<input type="hidden" class="id_proyecto" value="{{ $proyecto->id }}">
-				<div class="">
-					<img class="foto_proyecto" src="{{ asset('img/perfil_foto_prueba.jpg') }}" alt="">
-				</div>
-				<div class="datos_proyecto flex">
+		@if (count($proyectos) > 0)
+			@include('./proyectos/_modales')
+
+			@foreach ($proyectos as $proyecto)
+				<div class="tarjeta_proyecto flex">
+					<input type="hidden" class="id_proyecto" value="{{ $proyecto->id }}">
 					<div class="">
-						<p class="titulo_proyecto">{{ $proyecto->nombre }}</p>
-						<p class="descripcion_proyecto">{{ $proyecto->descripcion }}</p>
+						<img class="foto_proyecto" src="{{ asset('img/perfil_foto_prueba.jpg') }}" alt="">
 					</div>
-					<p class="no_integrantes_proyecto">1 integrante</p>
+					<div class="datos_proyecto flex">
+						<div class="datos_proyecto_inner">
+							<p class="titulo_proyecto">{{ $proyecto->nombre }}</p>
+							<p class="descripcion_proyecto">{{ $proyecto->descripcion }}</p>
+						</div>
+						<div class="flex" style="justify-content: space-between;">
+							<p class="no_integrantes_proyecto">1 integrante</p>
+
+							@if ($proyecto->es_scrum_master())
+								<div class="acciones_proyecto flex">
+									<a href="#modal_invitar_integrante" rel="modal:open" class="accion_modal accion modal_agregar_nuevo_integrante_proyecto">
+										<i class="agregar_nuevo_integrante_proyecto fas fa-user-plus"></i>
+									</a>
+									<a href="./proyecto/{{ $proyecto->id }}/editar" class="accion boton_editar_proyecto">
+										<i class="editar_proyecto fas fa-pencil-alt"></i>
+									</a>
+									<a href="#" class="accion_modal accion modal_eliminar_proyecto">
+										<i class="eliminar_proyecto far fa-trash-alt"></i>
+									</a>
+								</div>
+							@endif
+						</div>
+					</div>
 				</div>
-			</div>
-		@endforeach
+			@endforeach
+
+			<form style="display: none;" id="formulario_eliminar_proyecto" action="/proyecto/{{ $proyecto->id }}" method="post">
+				{{ method_field('DELETE') }}
+				{{ csrf_field() }}
+				<button type="submit" id="eliminar_proyecto" class="accion_modal accion modal_eliminar_proyecto">
+					<i class="eliminar_proyecto far fa-trash-alt"></i>
+				</button>
+			</form>
+
+		@else
+			<p class="no_historias_msg">No hay proyectos</p>
+		@endif
 	</div>
 
 	<script src="{{ asset("js/proyectos.js") }}" charset="utf-8"></script>
@@ -36,6 +67,10 @@
 			var proyectos = new Proyectos();
 			proyectos.setUrl("{{ url("/") }}");
 			proyectos.ev();
+
+			$(".modal_eliminar_proyecto").click(function(){
+				$("#formulario_eliminar_proyecto").submit();
+			})
 		});
 	</script>
 @endsection

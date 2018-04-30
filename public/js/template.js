@@ -21,27 +21,18 @@ function Template(){
 			$(".navegacion_lateral").toggleClass("activo")
 		});
 
-		// $(window).resize(function(){
-		// 	comprobar_navegacion();
-		// });
+		$(".contenedor_notificacion.no_leido").click(function(){
+			$.ajax({
+			    method : "post",
+			    url : base_url + "/actualizar_notificacion",
+			    async : true,
+			    data : {
+						"id_notificacion" : $(this).children(".id_notificacion").val(),
+						_token: $("#token").val()
+					}
+			}).done(function(data){
+				$(".close-modal").click();
+			});
+		});
 	}
-
-	// this.comprobar_navegacion = function(){
-	// 	comprobar_navegacion();
-	// }
-
-	// var comprobar_navegacion = function(){
-	// 	var url = window.location.href.split("/");
-	// 	url = url[url.length - 1];
-	//
-	// 	if (url == 'login' || url == "register") {
-	// 		var ancho_ventana = $(window).width();
-	//
-	// 		if(ancho_ventana < 1248){
-	// 			$(".navegacion_lateral").removeClass("activo");
-	// 		}else{
-	// 			$(".navegacion_lateral").addClass("activo");
-	// 		}
-	// 	}
-	// }
 }

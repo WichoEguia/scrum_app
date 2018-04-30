@@ -25,6 +25,7 @@
 	margin-left: 10px;
 	flex-direction: column;
 	justify-content: space-between;
+	width: 100%;
 
 	.descripcion_proyecto{
 		font-size: .9rem;
@@ -35,9 +36,51 @@
 		font-size: .8rem;
 		color: $main_color;
 	}
+
+	.acciones_proyecto{
+		.agregar_nuevo_integrante_proyecto,
+		.editar_proyecto,
+		.eliminar_proyecto{
+			color: #fff;
+			padding: 5px 0;
+		}
+
+		.accion{
+			display: inline-block;
+			width: 30px;
+			margin-left: 10px;
+			text-align: center;
+
+			&.modal_agregar_nuevo_integrante_proyecto{
+				background: $estimacion;
+				border-radius: 3px;
+				@include box-shadow(1);
+			}
+
+			&.boton_editar_proyecto{
+				background: $id_historia;
+				border-radius: 3px;
+				@include box-shadow(1);
+			}
+
+			&.modal_eliminar_proyecto{
+				background: $error_color;
+				border-radius: 3px;
+				@include box-shadow(1);
+			}
+		}
+	}
 }
 
 .cabecera_proyectos{
 	justify-content: space-between;
 	margin: 0 20px 10px 20px;
+}
+
+.no_historias_msg{
+	margin-top: 100px;
+	color: rgb(135, 135, 135);
+	font-weight: lighter;
+	font-size: 3rem;
+	text-align: center;
 }

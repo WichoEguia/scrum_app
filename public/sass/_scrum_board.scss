@@ -17,6 +17,8 @@
 .titulo_columna-scrum{
 	color: $main_color;
 	font-size: 1.5rem;
+	font-weight: lighter;
+	border-bottom: 1px solid $main_color;
 }
 
 .tarjeta_historia{
@@ -37,8 +39,23 @@
 
 	.importancia,
 	.estimacion,
-	.idhistoria{
+	.idhistoria,
+	i{
 		font-size: .8rem;
+	}
+
+	.acciones_historia{
+		justify-content: space-between;
+		div{
+			a:first-child{
+				color: $id_historia;
+			}
+			
+			a:last-child{
+				margin-left: 10px;
+				color: $error_color;
+			}
+		}
 	}
 
 	.estimacion{

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Session;
 
 class LoginController extends Controller
 {
@@ -35,5 +36,13 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+		public function authenticated($request, $user) {
+				Session::put('user_id', $user->id);
+				if (!null == $user->proyectos()->first()) {
+					Session::put('proyecto_id', $user->proyectos()->first());
+					Session::put('proyecto_nombre', $user->proyectos()->first()->nombre);
+				}
     }
 }

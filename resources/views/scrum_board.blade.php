@@ -14,17 +14,17 @@
 	</div>
 
 	<div class="scrum_board">
-		<div class="columna_scrum_board" id="backlog_list">
-			<p class="titulo_columna-scrum">Backlog List</p>
+		<div class="columna_scrum_board" id="to_do">
+			<p class="titulo_columna-scrum">To Do</p>
 		</div>
-		<div class="columna_scrum_board" id="por_hacer">
-			<p class="titulo_columna-scrum">Por Hacer</p>
+		<div class="columna_scrum_board" id="doing">
+			<p class="titulo_columna-scrum">Doing</p>
 		</div>
-		<div class="columna_scrum_board" id="iniciado">
-			<p class="titulo_columna-scrum">Haciendo</p>
+		<div class="columna_scrum_board" id="testing">
+			<p class="titulo_columna-scrum">Testing</p>
 		</div>
-		<div class="columna_scrum_board" id="terminado">
-			<p class="titulo_columna-scrum">Terminado</p>
+		<div class="columna_scrum_board" id="done">
+			<p class="titulo_columna-scrum">Done</p>
 		</div>
 	</div>
 
@@ -34,11 +34,12 @@
 			var historias = {!! $historias !!};
 			var proyectos = {!! $proyectos !!};
 			var proyecto_id = {!! $proyecto_id !!};
+			var scrum_master = {!! $scrum_master !!}
 
 			var scrumBoard = new Board();
 			scrumBoard.setUrl("{{ url('/') }}");
 			scrumBoard.ev();
-			scrumBoard.generar_historias(historias);
+			scrumBoard.generar_historias(historias, scrum_master);
 			scrumBoard.validaciones_proyectos(proyectos, proyecto_id);
 		});
 	</script>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Historia;
 use App\Proyecto;
+use App\Sprint;
 use Session;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,12 +19,13 @@ class HistoriaController extends Controller
     public function index(Request $request)
     {
 				$proyectos = Auth::User()->proyectos;
-				$historias = Historia::all();
+				$historias = Sprint::find(Session::get('proyecto_id'))->historias->where('estatus', '!=', 'baja');
 
         return view("./scrum_board",[
 					"historias" => $historias,
 					"proyectos" => $proyectos,
-					"proyecto_id" => Session::get('proyecto_id')
+					"proyecto_id" => Session::get('proyecto_id'),
+					"scrum_master" => Proyecto::find(Session::get('proyecto_id'))->es_scrum_master() ? '1' : '0'
 				]);
     }
 
@@ -54,13 +56,8 @@ class HistoriaController extends Controller
 				$historia->notas = $request->notas;
 				$historia->sprint_id = $sprint->id;
 				$historia->user_id = Session::get('user_id');
-
 				$historia->save();
 
-				$historias = Historia::all()->where('sprints_id', $sprint->id);
-				if (count($historias) == 1) {
-					$sprint->estatus = 'activo';
-				}
 				$sprint->puntos_esfuerzo += $request->estimacion;
 				$sprint->save();
 
@@ -84,9 +81,9 @@ class HistoriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Historia $historia)
     {
-        //
+      return view('./historias/edit', ['historia' => $historia]);
     }
 
     /**
@@ -96,9 +93,11 @@ class HistoriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Historia $historia)
     {
-        //
+			$historia->update(request()->all());
+
+			return redirect("/scrumboard");
     }
 
     /**
@@ -119,12 +118,27 @@ class HistoriaController extends Controller
 		}
 
 		public function burndown_chart(){
-			$estimacion = Auth::User()->historias->sum('estimacion');
-			$cantidad_historias = count(Auth::User()->historias);
+			$puntos_esfuerzo = [];
+			$fechas = [];
+			$historias_terminadas = Auth::User()->historias->where('estatus', 'done');
+			$puntos_esfuerzo_total = Sprint::where('proyecto_id', Session::get('proyecto_id'))->first()->puntos_esfuerzo;
+
+			foreach ($historias_terminadas as $historia) {
+				array_push($puntos_esfuerzo, $historia["estimacion"]);
+				array_push($fechas, $historia["updated_at"]->format('Y-m-d'));
+			}
+			// dd($fechas);
 
 	  	return view('/historias/burndown_chart', [
-				'estimacion' => $estimacion,
-				'cantidad_historias' => $cantidad_historias
+				'puntos_esfuerzo' => json_encode($puntos_esfuerzo),
+				'fechas' => json_encode($fechas),
+				'puntos_esfuerzo_total' => $puntos_esfuerzo_total
 			]);
+		}
+
+		public function baja_proyecto(Historia $historia){
+		  $historia->estatus = "baja";
+			$historia->save();
+			return redirect('/scrumboard');
 		}
 }
