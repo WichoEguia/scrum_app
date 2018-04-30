@@ -12,6 +12,7 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::post('/proyectos', 'ProyectoController@store')->name('guardar_proyecto');
 	Route::get('/proyecto/{proyecto}/editar', 'ProyectoController@edit');
 	Route::patch('/proyecto/{proyecto}', 'ProyectoController@update');
+	Route::delete('/proyecto/{proyecto}', 'ProyectoController@destroy');
 	Route::post('/asociar_proyecto_usuario', 'ProyectoController@asociar_proyecto_usuario');
 	Route::post('/invitar_usuario_proyecto', 'ProyectoController@invitar_usuario_proyecto');
 

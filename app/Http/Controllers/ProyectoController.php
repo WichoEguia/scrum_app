@@ -48,6 +48,12 @@ class ProyectoController extends Controller
 			return redirect("/proyectos");
 		}
 
+		public function destroy(Proyecto $proyecto){
+		  $proyecto->delete();
+
+			return redirect("/proyectos");
+		}
+
 		public function asociar_proyecto_usuario(Request $request){
 			Session::put('user_id', Auth::User()->id);
 			Session::put('proyecto_id', $request->proyecto_id);

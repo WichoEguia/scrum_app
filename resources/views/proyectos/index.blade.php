@@ -31,14 +31,14 @@
 							<p class="no_integrantes_proyecto">1 integrante</p>
 
 							@if ($proyecto->es_scrum_master())
-								<div class="acciones_proyecto">
+								<div class="acciones_proyecto flex">
 									<a href="#modal_invitar_integrante" rel="modal:open" class="accion_modal accion modal_agregar_nuevo_integrante_proyecto">
 										<i class="agregar_nuevo_integrante_proyecto fas fa-user-plus"></i>
 									</a>
 									<a href="./proyecto/{{ $proyecto->id }}/editar" class="accion boton_editar_proyecto">
 										<i class="editar_proyecto fas fa-pencil-alt"></i>
 									</a>
-									<a href="#modal_eliminar_proyecto" rel="modal:open" class="accion_modal accion modal_eliminar_proyecto">
+									<a href="#" class="accion_modal accion modal_eliminar_proyecto">
 										<i class="eliminar_proyecto far fa-trash-alt"></i>
 									</a>
 								</div>
@@ -47,6 +47,15 @@
 					</div>
 				</div>
 			@endforeach
+
+			<form style="display: none;" id="formulario_eliminar_proyecto" action="/proyecto/{{ $proyecto->id }}" method="post">
+				{{ method_field('DELETE') }}
+				{{ csrf_field() }}
+				<button type="submit" id="eliminar_proyecto" class="accion_modal accion modal_eliminar_proyecto">
+					<i class="eliminar_proyecto far fa-trash-alt"></i>
+				</button>
+			</form>
+
 		@else
 			<p class="no_historias_msg">No hay proyectos</p>
 		@endif
@@ -58,6 +67,10 @@
 			var proyectos = new Proyectos();
 			proyectos.setUrl("{{ url("/") }}");
 			proyectos.ev();
+
+			$(".modal_eliminar_proyecto").click(function(){
+				$("#formulario_eliminar_proyecto").submit();
+			})
 		});
 	</script>
 @endsection
