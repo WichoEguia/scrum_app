@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Notificacion;
 
 class User extends Authenticatable
 {
@@ -26,4 +27,21 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+		public function proyectos(){
+		  return $this->belongsToMany("App\Proyecto");
+		}
+
+		public function historias(){
+		  return $this->hasMany('App\Historia');
+		}
+
+		public function notificaciones(){
+		  return $this->hasMany('App\Notificacion');
+		}
+
+		public function numero_notificaciones(){
+		  $numero_notificaciones = count($this->notificaciones->where('estatus', 'no_leido'));
+			return $numero_notificaciones > 9 ? "+9" : $numero_notificaciones;
+		}
 }

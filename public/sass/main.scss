@@ -1,3 +1,17 @@
 @import "variables";
 @import "mixins";
 @import "template";
+@import "scrum_board";
+@import "historias";
+@import "elementos_formulario";
+@import "proyectos";
+
+.flex{
+	display: flex;
+	&.centerX{
+		justify-content: center;
+	}
+	&.centerY{
+		align-items: center;
+	}
+}
