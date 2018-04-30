@@ -15,6 +15,14 @@ function Template(){
 
 		$(".datos_usuario_cabecera").click(function(){
 			$(".panel_opciones_usuario").toggleClass("activo");
+
+			$(document).mouseup(function(e){
+		    var container = $(".panel_opciones_usuario");
+
+		    if (!container.is(e.target) && container.has(e.target).length === 0){
+		        container.removeClass("activo");
+		    }
+			});
 		});
 
 		$(".toggle_navegacion").click(function(){
