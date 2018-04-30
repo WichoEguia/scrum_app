@@ -122,7 +122,7 @@ function Board(){
 		if (scrum_master == 1) {
 			c += "		<div class='flex'>";
 			c += "			<a href='/historia/" + historias[i].id + "/editar'><i class='editar_proyecto fas fa-pencil-alt'></i></a>";
-			c += "			<a href='#'><i class='eliminar_proyecto far fa-trash-alt'></i></a>";
+			c += "			<a href='/historia/" + historias[i].id + "/eliminar'><i class='eliminar_proyecto far fa-trash-alt'></i></a>";
 			c += "		</div>";
 		}
 

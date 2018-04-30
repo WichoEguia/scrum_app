@@ -23,6 +23,7 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::patch('/historia/{historia}', 'HistoriaController@update');
 	Route::post('/actualiza_historia', 'HistoriaController@actualiza_estatus_tarea');
 	Route::get('/burndown_chart', 'HistoriaController@burndown_chart')->name('burndown_chart');
+	Route::get('/historia/{historia}/eliminar', 'HistoriaController@baja_proyecto');
 
 	Route::post('/actualizar_notificacion', 'MainController@actualizar_notificacion');
 });

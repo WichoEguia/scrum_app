@@ -19,7 +19,7 @@ class HistoriaController extends Controller
     public function index(Request $request)
     {
 				$proyectos = Auth::User()->proyectos;
-				$historias = Sprint::where('proyecto_id', Session::get('proyecto_id'))->where('estatus', 'activo')->first()->historias;
+				$historias = Sprint::find(Session::get('proyecto_id'))->historias->where('estatus', '!=', 'baja');
 
         return view("./scrum_board",[
 					"historias" => $historias,
@@ -134,5 +134,11 @@ class HistoriaController extends Controller
 				'fechas' => json_encode($fechas),
 				'puntos_esfuerzo_total' => $puntos_esfuerzo_total
 			]);
+		}
+
+		public function baja_proyecto(Historia $historia){
+		  $historia->estatus = "baja";
+			$historia->save();
+			return redirect('/scrumboard');
 		}
 }
