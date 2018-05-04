@@ -39,9 +39,11 @@
 
 <div class="panel_opciones_usuario">
 	<div class="flex">
-		<div class="opcion_usuario_item flex centerX centerY">
-			<i class="fas fa-address-card"></i>
-		</div>
+		<a href="{{ route('perfil') }}">
+			<div class="opcion_usuario_item flex centerX centerY">
+				<i class="fas fa-address-card"></i>
+			</div>
+		</a>
 
 		<a href="#modal_notificaciones" rel="modal:open" class="accion_modal">
 			<div class="opcion_usuario_item flex centerX centerY">

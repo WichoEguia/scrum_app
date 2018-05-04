@@ -550,6 +550,62 @@ form {
   text-align: center;
 }
 
+#contenedor_foto_nombre {
+  justify-content: space-between;
+  padding: 20px 100px;
+  align-items: flex-end;
+}
+
+#contenedor_foto_nombre div {
+  text-align: right;
+  color: #535353;
+}
+
+#contenedor_foto_nombre div p:first-child {
+  font-size: 2.5rem;
+}
+
+#contenedor_foto_nombre div p:last-child {
+  font-size: 2rem;
+}
+
+#contenedor_foto_nombre img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+#contenedor_proyectos_perfil {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+  margin: 20px;
+}
+
+.contenedor_proyecto_perfil {
+  background: #fff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: inset 10px 0 0 #FD643B;
+  padding-left: 15px;
+}
+
+.nombre_proyecto_perfil {
+  font-size: 1.5rem;
+}
+
+.icono_scrum_master {
+  color: yellow;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.titulo_proyectos_perfil {
+  font-size: 2rem;
+  margin-left: 30px;
+  color: #535353;
+}
+
 .flex {
   display: flex;
 }

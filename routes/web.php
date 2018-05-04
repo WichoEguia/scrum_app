@@ -25,5 +25,7 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('/burndown_chart', 'HistoriaController@burndown_chart')->name('burndown_chart');
 	Route::get('/historia/{historia}/eliminar', 'HistoriaController@baja_proyecto');
 
+	Route::get('/perfil', 'UserController@index')->name('perfil');
+
 	Route::post('/actualizar_notificacion', 'MainController@actualizar_notificacion');
 });
