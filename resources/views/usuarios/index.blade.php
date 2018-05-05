@@ -7,7 +7,7 @@
 		<div id="nombre_usuario">
 			<p>{{ $usuario->name }}</p>
 			<p>{{ $usuario->email }}</p>
-			<a href="#">Editar Perfil</a>
+			<a href="{{ route('editar_perfil', ['user' => Auth::User()]) }}">Editar Perfil</a>
 		</div>
 	</div>
 

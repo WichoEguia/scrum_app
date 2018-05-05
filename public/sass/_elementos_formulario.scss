@@ -105,3 +105,25 @@ input[type="checkbox"]:checked + label::before{
 form{
 	margin-left: 50px;
 }
+
+input[type="file"]{
+	display: none;
+
+	& + label{
+		background: $main_color;
+		padding: 20px;
+		color: #fff;
+		width: 200px;
+		flex-direction: column;
+		font-size: 1.1rem;
+		cursor: pointer;
+
+		i:last-child{
+			font-size: 3rem;
+		}
+
+		&:hover{
+			background: darken($main_color, 5);
+		}
+	}
+}

@@ -17,4 +17,8 @@ class UserController extends Controller
 			['usuario' => $usuario, 'proyectos' => $proyectos]
 		);
   }
+
+	public function edit(User $user){
+	  return view('usuarios/edit', ['user' => $user]);
+	}
 }

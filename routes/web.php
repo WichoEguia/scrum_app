@@ -6,7 +6,6 @@ Route::group(['middleware' => ['auth']], function() {
 		return redirect('/proyectos');
 	});
 
-
 	Route::get('/proyectos', 'ProyectoController@index')->name('ruta_proyectos');
 	Route::get('/proyecto/nuevo', 'ProyectoController@create')->name('nuevo_proyecto');
 	Route::post('/proyectos', 'ProyectoController@store')->name('guardar_proyecto');
@@ -26,6 +25,7 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('/historia/{historia}/eliminar', 'HistoriaController@baja_proyecto');
 
 	Route::get('/perfil', 'UserController@index')->name('perfil');
+	Route::get('/perfil/edit/{user}', 'UserController@edit')->name('editar_perfil');
 
 	Route::post('/actualizar_notificacion', 'MainController@actualizar_notificacion');
 });
