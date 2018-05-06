@@ -19,9 +19,6 @@
 			@foreach ($proyectos as $proyecto)
 				<div class="tarjeta_proyecto flex">
 					<input type="hidden" class="id_proyecto" value="{{ $proyecto->id }}">
-					<div class="">
-						<img class="foto_proyecto" src="{{ asset('img/perfil_foto_prueba.jpg') }}" alt="">
-					</div>
 					<div class="datos_proyecto flex">
 						<div class="datos_proyecto_inner">
 							<p class="titulo_proyecto">{{ $proyecto->nombre }}</p>
