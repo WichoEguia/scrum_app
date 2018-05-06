@@ -25,7 +25,29 @@
 							<p class="descripcion_proyecto">{{ $proyecto->descripcion }}</p>
 						</div>
 						<div class="flex" style="justify-content: space-between;">
-							<p class="no_integrantes_proyecto">1 integrante</p>
+							<a href="#modal_listado_integrantes" rel="modal:open" class="accion_modal no_integrantes_proyecto">
+								{{ count($proyecto->users) }} Integrante{{ count($proyecto->users)  > 1 ? 's' : '' }}
+							</a>
+
+							<div id="modal_listado_integrantes" class="modal">
+								<p class="titulo_vista">Integrantes</p>
+								<ul>
+									@foreach ($proyecto->users as $user)
+										<li class="flex">
+											<div>
+												<p>{{ $user->name }}</p>
+												<p>{{ $user->email }}</p>
+											</div>
+
+											<div class="flex centerY">
+												@if ($proyecto->scrum_master == $user->id)
+													<p><i class="far fa-star"></i></p>
+												@endif
+											</div>
+										</li>
+									@endforeach
+								</ul>
+							</div>
 
 							@if ($proyecto->es_scrum_master())
 								<div class="acciones_proyecto flex">
