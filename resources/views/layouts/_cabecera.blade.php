@@ -5,7 +5,11 @@
 				<i class="fa fa-bars"></i>
 				<div class="titulo--proyecto flex">
 					<span class="titulo_vista">@yield('titulo_vista')</span>
-					<span class="nombre_proyecto">Proyecto: {{ Session::get('proyecto_nombre') }}</span>
+					@if (Session::get('proyecto_nombre'))
+						<span class="nombre_proyecto">Proyecto: {{ Session::get('proyecto_nombre') }}</span>
+					@else
+						<span class="nombre_proyecto"></span>
+					@endif
 				</div>
 			@endauth
 
