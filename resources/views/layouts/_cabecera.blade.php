@@ -18,7 +18,7 @@
 			<div class="datos_usuario_cabecera">
 					<div class="foto_perfil">
 						<div data-badge="{{ Auth::User()->numero_notificaciones() }}">
-							<img src="{{ asset('img/perfil_foto_prueba.jpg') }}">
+							<img src="{{ asset(Auth::User()->userphoto) }}">
 						</div>
 					</div>
 					<span>{{ Auth::user()->name }}</span>

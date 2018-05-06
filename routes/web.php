@@ -26,6 +26,7 @@ Route::group(['middleware' => ['auth']], function() {
 
 	Route::get('/perfil', 'UserController@index')->name('perfil');
 	Route::get('/perfil/edit/{user}', 'UserController@edit')->name('editar_perfil');
+	Route::patch('/user/{user}', 'UserController@update');
 
 	Route::post('/actualizar_notificacion', 'MainController@actualizar_notificacion');
 });

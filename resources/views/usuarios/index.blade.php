@@ -3,7 +3,7 @@
 
 @section('contenedor_principal')
 	<div id="contenedor_foto_nombre" class="flex">
-		<img src="{{ asset('img/perfil_foto_prueba.jpg') }}" alt="">
+		<img src="{{ asset(Auth::User()->userphoto) }}" alt="">
 		<div id="nombre_usuario">
 			<p>{{ $usuario->name }}</p>
 			<p>{{ $usuario->email }}</p>
