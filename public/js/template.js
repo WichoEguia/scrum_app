@@ -30,6 +30,7 @@ function Template(){
 		});
 
 		$(".contenedor_notificacion.no_leido").click(function(){
+			$(this).removeClass("no_leido").addClass("leido");
 			$.ajax({
 			    method : "post",
 			    url : base_url + "/actualizar_notificacion",
@@ -39,6 +40,10 @@ function Template(){
 						_token: $("#token").val()
 					}
 			}).done(function(data){
+				if (data.resultado) {
+					$(".foto_perfil > div").attr('data-badge', parseInt($(".foto_perfil > div").attr('data-badge')) - 1);
+				}
+
 				$(".close-modal").click();
 			});
 		});

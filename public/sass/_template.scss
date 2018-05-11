@@ -214,29 +214,31 @@ header{
 	margin: 0 0 20px 50px;
 }
 
-.contenedor_notificacion.no_leido{
-	margin: 10px 0;
-	padding-left: 15px;
-	box-shadow: inset 10px 0 0 $main_color;
+.contenedor_notificacion{
+	&.no_leido{
+		margin: 10px 0;
+		padding-left: 15px;
+		box-shadow: inset 10px 0 0 $main_color;
 
-	.fecha_notificacion{
-		color: $input_text;
-		font-size: .8rem;
+		.fecha_notificacion{
+			color: $input_text;
+			font-size: .8rem;
+		}
+	}
+
+	&.leido{
+		margin: 10px 0;
+		padding-left: 15px;
+		box-shadow: inset 10px 0 0 $input_text;
+
+		.fecha_notificacion{
+			color: $input_text;
+			font-size: .8rem;
+		}
 	}
 }
 
 .sin_notificaciones{
 	color: $input_text;
 	font-size: .8rem;
-}
-
-.contenedor_notificacion.leido{
-	margin: 10px 0;
-	padding-left: 15px;
-	box-shadow: inset 10px 0 0 $input_text;
-
-	.fecha_notificacion{
-		color: $input_text;
-		font-size: .8rem;
-	}
 }

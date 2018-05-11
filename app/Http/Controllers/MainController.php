@@ -10,10 +10,17 @@ use Illuminate\Support\Facades\Auth;
 class MainController extends Controller
 {
 	public function actualizar_notificacion(Request $request){
-	  $notificacion = Notificacion::find($request->id_notificacion);
-		$notificacion->estatus = "leido";
-		$notificacion->updated_at = date('Y-m-d h:i:s');
+		$resultado["resultado"] = false;
 
-		$notificacion->save();
+	  $notificacion = Notificacion::find($request->id_notificacion);
+		if (count($notificacion) > 0) {
+			$resultado["resultado"] = true;
+
+			$notificacion->estatus = "leido";
+			$notificacion->updated_at = date('Y-m-d h:i:s');
+			$notificacion->save();
+		}
+
+		return $resultado;
 	}
 }

@@ -69,7 +69,7 @@ class ProyectoController extends Controller
 			if (count($usuario) > 0) {
 				$usuario_sesion = Auth::User();
 				if ($usuario[0]->email != $usuario_sesion->email) {
-					$proyecto = Proyecto::find(Session::get('proyecto_id'))->first();
+					$proyecto = Proyecto::find($request->id_proyecto_compartido);
 					for ($i=0; $i < count($proyecto->users); $i++) {
 						$pase = ($usuario[0]->id != $proyecto->users->get($i)->id) ? true : false;
 					}

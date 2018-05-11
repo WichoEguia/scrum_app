@@ -241,11 +241,6 @@ header {
   font-size: .8rem;
 }
 
-.sin_notificaciones {
-  color: #535353;
-  font-size: .8rem;
-}
-
 .contenedor_notificacion.leido {
   margin: 10px 0;
   padding-left: 15px;
@@ -253,6 +248,11 @@ header {
 }
 
 .contenedor_notificacion.leido .fecha_notificacion {
+  color: #535353;
+  font-size: .8rem;
+}
+
+.sin_notificaciones {
   color: #535353;
   font-size: .8rem;
 }

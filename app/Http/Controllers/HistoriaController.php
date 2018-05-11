@@ -18,8 +18,15 @@ class HistoriaController extends Controller
      */
     public function index(Request $request)
     {
+				$historias = [];
 				$proyectos = Auth::User()->proyectos;
-				$historias = Sprint::find(Session::get('proyecto_id'))->historias->where('estatus', '!=', 'baja');
+
+				// TODO: Bloquear LINK en navegación
+				if (!Session::get('proyecto_id')) {
+					return redirect('/');
+				}
+
+				$historias = Sprint::where('proyecto_id', Session::get('proyecto_id'))->first()->historias->where('estatus', '!=', 'baja');
 
         return view("./scrum_board",[
 					"historias" => $historias,
