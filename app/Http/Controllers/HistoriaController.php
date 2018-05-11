@@ -125,6 +125,10 @@ class HistoriaController extends Controller
 		}
 
 		public function burndown_chart(){
+			if (!Session::get('proyecto_id')) {
+				return redirect('/');
+			}
+
 			$puntos_esfuerzo = [];
 			$fechas = [];
 			$historias_terminadas = Auth::User()->historias->where('estatus', 'done');
