@@ -13,6 +13,7 @@ function Proyectos(){
 		$(".datos_proyecto_inner").off();
 		$(".formulario_crear_proyectos").off();
 		$(".modal_agregar_nuevo_integrante_proyecto").off();
+		$(".no_integrantes_proyecto").off();
 		$("#invitar_usuario_proyecto").off();
 
 		$(".modal_agregar_nuevo_integrante_proyecto").click(function(){
@@ -66,8 +67,6 @@ function Proyectos(){
 						$(".close-modal").click();
 					});
 				}
-
-				localStorage.setItem('id_proyecto_compartido', '')
 			});
 		});
 	}

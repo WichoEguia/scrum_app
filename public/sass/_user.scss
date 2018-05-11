@@ -24,7 +24,7 @@
 
 #contenedor_proyectos_perfil{
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: repeat(2, 1fr);
 	grid-gap: 20px;
 	margin: 20px;
 }
@@ -41,9 +41,10 @@
 }
 
 .icono_scrum_master{
-	color: yellow;
+	color: $main_color;
 	justify-content: flex-end;
 	margin-top: 10px;
+	width: 100%;
 }
 
 .titulo_proyectos_perfil{

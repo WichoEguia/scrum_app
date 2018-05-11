@@ -17,14 +17,14 @@
 		@if (count($proyectos) > 0)
 			@for ($i=0; $i < count($proyectos); $i++)
 				<div class="contenedor_proyecto_perfil">
-					<p class="nombre_proyecto_perfil">{{ $proyectos[$i]->nombre }}</p>
-					<p>{{ $proyectos[$i]->descripcion }}</p>
-
 					@if ($proyectos[$i]->es_scrum_master())
 						<div class="flex">
 							<i class="fas fa-star icono_scrum_master"></i>
 						</div>
 					@endif
+
+					<p class="nombre_proyecto_perfil">{{ $proyectos[$i]->nombre }}</p>
+					<p>{{ $proyectos[$i]->descripcion }}</p>
 				</div>
 			@endfor
 		@endif
