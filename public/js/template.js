@@ -11,7 +11,6 @@ function Template(){
 
 	var eventos = function(){
 		$(".datos_usuario_cabecera").off();
-		$(".toggle_navegacion").off();
 
 		$(".datos_usuario_cabecera").click(function(){
 			$(".panel_opciones_usuario").toggleClass("activo");
@@ -23,10 +22,6 @@ function Template(){
 		        container.removeClass("activo");
 		    }
 			});
-		});
-
-		$(".toggle_navegacion").click(function(){
-			$(".navegacion_lateral").toggleClass("activo")
 		});
 
 		$(".contenedor_notificacion.no_leido").click(function(){

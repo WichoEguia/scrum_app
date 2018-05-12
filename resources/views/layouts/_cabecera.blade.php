@@ -2,7 +2,6 @@
 	<div class="contenedor_cabecera">
 		<div class="toggle_navegacion flex centerY">
 			@auth
-				<i class="fa fa-bars"></i>
 				<div class="titulo--proyecto flex">
 					<span class="titulo_vista">@yield('titulo_vista')</span>
 					@if (Session::get('proyecto_nombre'))
