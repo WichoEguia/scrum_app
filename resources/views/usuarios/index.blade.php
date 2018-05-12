@@ -11,10 +11,10 @@
 		</div>
 	</div>
 
-	<p class="titulo_proyectos_perfil">Proyectos</p>
 
 	<div id="contenedor_proyectos_perfil">
 		@if (count($proyectos) > 0)
+			<p class="titulo_proyectos_perfil">Proyectos</p>
 			@for ($i=0; $i < count($proyectos); $i++)
 				<div class="contenedor_proyecto_perfil">
 					@if ($proyectos[$i]->es_scrum_master())
@@ -27,6 +27,8 @@
 					<p>{{ $proyectos[$i]->descripcion }}</p>
 				</div>
 			@endfor
+		@else
+			<p class="titulo_proyectos_perfil">Sin proyectos</p>
 		@endif
 	</div>
 @endsection
