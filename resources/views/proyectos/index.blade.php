@@ -1,15 +1,16 @@
 @extends('layouts/template_main')
 @section('titulo_vista', 'Proyectos')
 
+@section('accion_navegacion_lateral')
+	<a href="{{ route("nuevo_proyecto") }}">
+		<i class="fas fa-plus"></i>
+		Nuevo Proyecto
+	</a>
+@endsection
+
 @section('contenedor_principal')
 	<div class="cabecera_proyectos flex centerY">
 		<p>Selecciona un proyecto.</p>
-		<a class="boton" href="{{ route("nuevo_proyecto") }}">
-			<div class="boton_icono">
-				<i class="fas fa-plus"></i>
-				Nuevo Proyecto
-			</div>
-		</a>
 	</div>
 	<div class="proyectos_contenedor_xd">
 		<input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
