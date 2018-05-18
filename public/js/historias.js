@@ -72,11 +72,13 @@ function Historias(){
 		return resultado;
 	}
 
-	this.dibuja_grafica = function(puntos_esfuerzo_total, puntos_esfuerzo,fechas){
-		// var dias = obtener_fechas();
+	this.dibuja_grafica = function(puntos_esfuerzo_total, puntos_esfuerzo, fechas){
 		// console.log(fechas);
 		// console.log(puntos_esfuerzo);
-		// var puntos_esfuerzo = array_puntos_esfuerzo(puntos_esfuerzo,fechas);
+		resultado = reformar_grafica(fechas, puntos_esfuerzo);
+		fechas = resultado.fechas;
+		puntos_esfuerzo = resultado.puntos;
+
 		if (puntos_esfuerzo.length == 0) {
 			swal("Sin progreso", "No hay historias finalizadas.", "warning");
 		}
@@ -123,8 +125,8 @@ function Historias(){
 		      borderWidth: 0
 		    },
 		    series: [{
-		      name: 'Progreso actual',
-		      color: 'rgba(0,120,200,0.75)',
+		      name: 'Restante',
+		      color: 'rgb(237, 59, 11)',
 		      marker: {
 		        radius: 6
 		      },
@@ -161,5 +163,26 @@ function Historias(){
 		}
 
 		return arr_puntos_esfuerzo;
+	}
+
+	var reformar_grafica = function(fechas, puntos_esfuerzo){
+		json_fechas = {};
+		resultado = {
+			"fechas" : [],
+			"puntos" : []
+		};
+
+		for (var i = 0; i < fechas.length; i++) {
+			json_fechas[fechas[i]] = Math.floor(puntos_esfuerzo[i]);
+		}
+		// console.log(json_fechas);
+
+		$.each(json_fechas, function(key, val){
+			resultado.fechas.push(key);
+			resultado.puntos.push(val);
+		});
+		// console.log(resultado);
+
+		return resultado;
 	}
 }
