@@ -131,7 +131,7 @@ class HistoriaController extends Controller
 
 			$puntos_esfuerzo = [];
 			$fechas = [];
-			$historias_terminadas = Auth::User()->historias->where('estatus', 'done');
+			$historias_terminadas = Sprint::where('proyecto_id', Session::get('proyecto_id'))->first()->historias->where('estatus', 'done');
 			$puntos_esfuerzo_total = Sprint::where('proyecto_id', Session::get('proyecto_id'))->first()->puntos_esfuerzo;
 
 			foreach ($historias_terminadas as $historia) {
