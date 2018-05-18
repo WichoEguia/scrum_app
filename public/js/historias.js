@@ -74,8 +74,8 @@ function Historias(){
 
 	this.dibuja_grafica = function(puntos_esfuerzo_total, puntos_esfuerzo,fechas){
 		// var dias = obtener_fechas();
-		console.log(fechas);
-		console.log(puntos_esfuerzo);
+		// console.log(fechas);
+		// console.log(puntos_esfuerzo);
 		// var puntos_esfuerzo = array_puntos_esfuerzo(puntos_esfuerzo,fechas);
 		if (puntos_esfuerzo.length == 0) {
 			swal("Sin progreso", "No hay historias finalizadas.", "warning");

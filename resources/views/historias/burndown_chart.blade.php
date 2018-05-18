@@ -19,16 +19,19 @@
 			var puntos_esfuerzo_total = {!! $puntos_esfuerzo_total !!};
 			var puntos_esfuerzo = {!! $puntos_esfuerzo !!};
 			var fechas = {!! $fechas !!};
-			// console.log(puntos_esfuerzo_total);
-			for (var i = 0; i < puntos_esfuerzo.length; i++) {
-				puntos_esfuerzo[i] = puntos_esfuerzo_total - puntos_esfuerzo[i];
+			var puntos_esfuerzo_res = [];
+
+			for (var j = 0; j < puntos_esfuerzo.length; j++) {
+				puntos_esfuerzo_res.push(puntos_esfuerzo_total)
+				for (var i = 0; i < j + 1; i++) {
+					puntos_esfuerzo_res[j] -= puntos_esfuerzo[i];
+				}
 			}
-			console.log(puntos_esfuerzo);
 
 			var historias = new Historias();
 			historias.setUrl("{{ url("/") }}");
 			historias.ev();
-			historias.dibuja_grafica(puntos_esfuerzo_total, puntos_esfuerzo,fechas);
+			historias.dibuja_grafica(puntos_esfuerzo_total, puntos_esfuerzo_res, fechas);
 		});
 	</script>
 @endsection
