@@ -318,6 +318,28 @@ header {
   margin-bottom: 10px;
 }
 
+#contenedor_historias_sprint #contenedor_historias {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(auto-fit, 170px);
+  -webkit-column-gap: 20px;
+          column-gap: 20px;
+  padding: 0 20px;
+}
+
+#contenedor_historias_sprint #titulo_historias_sprint {
+  font-size: 2rem;
+  margin-left: 30px;
+}
+
+.tarjeta_sprint {
+  display: block;
+  padding: 5px;
+  color: #535353;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  margin: 10px 0;
+}
+
 legend {
   font-size: 1.3rem;
   color: #5e5e5e;

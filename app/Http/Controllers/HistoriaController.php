@@ -138,6 +138,7 @@ class HistoriaController extends Controller
 			$historias_terminadas = $sprint->historias->where('estatus', 'done')->sortByDesc('updated_at')->reverse();
 			$puntos_esfuerzo_total = $sprint->puntos_esfuerzo;
 			$proyecto = Proyecto::find(Session::get('proyecto_id'));
+			$sprints = Sprint::where('proyecto_id', Session::get('proyecto_id'))->where('estatus', 'cancelado')->get();
 
 			foreach ($historias_terminadas as $historia) {
 				array_push($puntos_esfuerzo, $historia["estimacion"]);
@@ -150,7 +151,8 @@ class HistoriaController extends Controller
 				'fechas' => json_encode($fechas),
 				'puntos_esfuerzo_total' => $puntos_esfuerzo_total,
 				'proyecto' => $proyecto,
-				'sprint_actual' => $sprint
+				'sprint_actual' => $sprint,
+				'sprints' => $sprints
 			]);
 		}
 

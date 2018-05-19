@@ -2,3 +2,27 @@
 	font-size: 2rem;
 	margin-bottom: 10px;
 }
+
+
+#contenedor_historias_sprint{
+	#contenedor_historias{
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(auto-fit, 170px);
+		column-gap: 20px;
+		padding: 0 20px;
+	}
+
+	#titulo_historias_sprint{
+		font-size: 2rem;
+		margin-left: 30px;
+	}
+}
+
+.tarjeta_sprint{
+	display: block;
+	padding: 5px;
+	color: $input_text;
+	@include box-shadow(1);
+	margin: 10px 0;
+}

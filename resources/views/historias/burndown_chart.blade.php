@@ -3,7 +3,7 @@
 
 @if($proyecto->es_scrum_master())
 	@section('accion_navegacion_lateral')
-		<a href='/fin_sprint/{{ $sprint_actual->id }}'>
+		<a href='/fin_sprint/{{ $sprint_actual->id }}' onclick="event.preventDefault(); document.getElementById('form_fin_sprint').submit();">
 			<i class="far fa-check-circle"></i>
 			Fin Sprint
 		</a>
@@ -11,7 +11,32 @@
 @endif
 
 @section('contenedor_principal')
+
+	<br>
+	<a href="#modal_lista_sprints" rel="modal:open" style="margin-left: 20px;" class="boton accion_modal">
+		<i class="fas fa-list-alt"></i>
+		Historial Sprints
+	</a>
+	<br><br><br>
+
 	<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+	<div id="modal_lista_sprints" class="modal">
+		<p class="titulo_vista">Sprints</p>
+		@foreach ($sprints as $sprint)
+			<a href="/sprint/{{ $sprint->id }}" class="tarjeta_sprint">
+				<p>Sprint {{ $sprint->id }}</p>
+				<p>{{ "De " . substr($sprint->created_at, 0, 10) . " a " . substr($sprint->updated_at, 0, 10) }}</p>
+			</a>
+		@endforeach
+	</div>
+
+	<form id="form_fin_sprint" action="/fin_sprint" method="post" style="display: none;">
+		{{ csrf_field() }}
+		<input type="text" name="sprint" value="{{ $sprint_actual->id }}">
+		<input type="text" name="arr_puntos" id="arr_puntos" value="">
+		<input type="text" name="arr_fechas" id="arr_fechas" value="">
+	</form>
 
 	<link rel="stylesheet" href="{{ asset("css/highcharts.css") }}">
 	<script src="{{ asset("js/highcharts.js") }}" charset="utf-8"></script>

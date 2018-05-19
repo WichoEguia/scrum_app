@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Notificacion;
 use App\Sprint;
+use App\Historia;
 use Session;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,8 +26,15 @@ class MainController extends Controller
 		return $resultado;
 	}
 
-	public function fin_sprint(Sprint $sprint){
+	public function fin_sprint(Request $request){
+		// dd($request->all());
+		$sprint = Sprint::find($request->sprint);
+		$arr_puntos = $request->arr_puntos;
+		$arr_fechas = $request->arr_fechas;
+
 		$sprint->estatus = 'cancelado';
+		$sprint->arr_puntos = $arr_puntos;
+		$sprint->arr_fechas = $arr_fechas;
 		$sprint->save();
 
 		$nuevo_sprint = new Sprint();
@@ -37,5 +45,13 @@ class MainController extends Controller
 		Session::put('sprint_actual', $sprint);
 
 		return redirect("/scrumboard");
+	}
+
+	public function ver_sprint(Sprint $sprint){
+		$historias = Sprint::find($sprint->id)->historias;
+	  return view('./sprints/show', [
+			'sprint' => $sprint,
+			'historias' => $historias
+		]);
 	}
 }

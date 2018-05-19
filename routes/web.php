@@ -29,5 +29,6 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::patch('/user/{user}', 'UserController@update');
 
 	Route::post('/actualizar_notificacion', 'MainController@actualizar_notificacion');
-	Route::get('/fin_sprint/{sprint}', 'MainController@fin_sprint');
+	Route::post('/fin_sprint', 'MainController@fin_sprint');
+	Route::get('/sprint/{sprint}', 'MainController@ver_sprint');
 });

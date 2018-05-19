@@ -79,6 +79,9 @@ function Historias(){
 		fechas = resultado.fechas;
 		puntos_esfuerzo = resultado.puntos;
 
+		$("#arr_puntos").val(puntos_esfuerzo.toString());
+		$("#arr_fechas").val(fechas.toString());
+
 		if (puntos_esfuerzo.length == 0) {
 			swal("Sin progreso", "No hay historias finalizadas.", "warning");
 		}
@@ -175,13 +178,11 @@ function Historias(){
 		for (var i = 0; i < fechas.length; i++) {
 			json_fechas[fechas[i]] = Math.floor(puntos_esfuerzo[i]);
 		}
-		// console.log(json_fechas);
 
 		$.each(json_fechas, function(key, val){
 			resultado.fechas.push(key);
 			resultado.puntos.push(val);
 		});
-		// console.log(resultado);
 
 		return resultado;
 	}
