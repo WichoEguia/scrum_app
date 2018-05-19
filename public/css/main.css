@@ -40,7 +40,12 @@ header {
 }
 
 .titulo--proyecto .nombre_proyecto {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  color: #535353;
+}
+
+.titulo--proyecto .sprint_actual {
+  font-size: .9rem;
   color: #535353;
 }
 

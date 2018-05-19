@@ -26,7 +26,10 @@ class HistoriaController extends Controller
 					return redirect('/');
 				}
 
-				$historias = Sprint::where('proyecto_id', Session::get('proyecto_id'))->first()->historias->where('estatus', '!=', 'baja');
+				$sprint = Sprint::where('proyecto_id', Session::get('proyecto_id'))->where('estatus', 'activo')->first();
+				if (count($sprint) > 0) {
+					$historias = $sprint->historias->where('estatus', '!=', 'baja');
+				}
 
         return view("./scrum_board",[
 					"historias" => $historias,
@@ -131,19 +134,23 @@ class HistoriaController extends Controller
 
 			$puntos_esfuerzo = [];
 			$fechas = [];
-			$historias_terminadas = Sprint::where('proyecto_id', Session::get('proyecto_id'))->first()->historias->where('estatus', 'done')->sortByDesc('updated_at')->reverse();
-			$puntos_esfuerzo_total = Sprint::where('proyecto_id', Session::get('proyecto_id'))->first()->puntos_esfuerzo;
+			$sprint = Sprint::where('proyecto_id', Session::get('proyecto_id'))->where('estatus', 'activo')->first();
+			$historias_terminadas = $sprint->historias->where('estatus', 'done')->sortByDesc('updated_at')->reverse();
+			$puntos_esfuerzo_total = $sprint->puntos_esfuerzo;
+			$proyecto = Proyecto::find(Session::get('proyecto_id'));
 
 			foreach ($historias_terminadas as $historia) {
 				array_push($puntos_esfuerzo, $historia["estimacion"]);
 				array_push($fechas, $historia["updated_at"]->format('Y-m-d'));
 			}
-			// dd($fechas);
+			// dd($sprint_actual);
 
 	  	return view('/historias/burndown_chart', [
 				'puntos_esfuerzo' => json_encode($puntos_esfuerzo),
 				'fechas' => json_encode($fechas),
-				'puntos_esfuerzo_total' => $puntos_esfuerzo_total
+				'puntos_esfuerzo_total' => $puntos_esfuerzo_total,
+				'proyecto' => $proyecto,
+				'sprint_actual' => $sprint
 			]);
 		}
 

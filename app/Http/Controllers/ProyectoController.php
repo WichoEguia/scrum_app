@@ -27,13 +27,14 @@ class ProyectoController extends Controller
 			$proyecto = Proyecto::create($request->all());
 			$proyecto->users()->attach(Auth::User());
 
-			Session::put('proyecto_id', $proyecto->id);
-			Session::put('proyecto_nombre', $proyecto->nombre);
-
 			$sprint = new Sprint();
 			$sprint->puntos_esfuerzo = 0;
 			$sprint->proyecto_id = Session::get('proyecto_id');
 			$sprint->save();
+
+			Session::put('proyecto_id', $proyecto->id);
+			Session::put('proyecto_nombre', $proyecto->nombre);
+			Session::put('sprint_actual', $sprint);
 
 			return redirect("/proyectos");
 		}

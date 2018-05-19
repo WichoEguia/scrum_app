@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Notificacion;
+use App\Sprint;
 use Session;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,5 +23,19 @@ class MainController extends Controller
 		}
 
 		return $resultado;
+	}
+
+	public function fin_sprint(Sprint $sprint){
+		$sprint->estatus = 'cancelado';
+		$sprint->save();
+
+		$nuevo_sprint = new Sprint();
+		$nuevo_sprint->puntos_esfuerzo = 0;
+		$nuevo_sprint->proyecto_id = Session::get('proyecto_id');
+		$nuevo_sprint->save();
+
+		Session::put('sprint_actual', $sprint);
+
+		return redirect("/scrumboard");
 	}
 }

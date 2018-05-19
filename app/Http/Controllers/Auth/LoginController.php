@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Session;
+use App\Sprint;
 
 class LoginController extends Controller
 {
@@ -43,6 +44,7 @@ class LoginController extends Controller
 				if (!null == $user->proyectos()->first()) {
 					Session::put('proyecto_id', $user->proyectos()->first()->id);
 					Session::put('proyecto_nombre', $user->proyectos()->first()->nombre);
+					Session::put('sprint_actual', $sprint = Sprint::where('proyecto_id', Session::get('proyecto_id'))->where('estatus', 'activo')->first());
 				}
     }
 }

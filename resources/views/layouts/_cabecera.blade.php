@@ -6,6 +6,7 @@
 					<span class="titulo_vista">@yield('titulo_vista')</span>
 					@if (Session::get('proyecto_nombre'))
 						<span class="nombre_proyecto">Proyecto: {{ Session::get('proyecto_nombre') }}</span>
+						<span class="sprint_actual">Sprint: {{ substr(Session::get('sprint_actual')->created_at, 0, 10) }}</span>
 					@else
 						<span class="nombre_proyecto"></span>
 					@endif

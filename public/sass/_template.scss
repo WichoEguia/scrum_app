@@ -39,7 +39,12 @@ header{
 	flex-direction: column;
 
 	.nombre_proyecto{
-		font-size: 1.2rem;
+		font-size: 1.1rem;
+		color: $input_text;
+	}
+
+	.sprint_actual{
+		font-size: .9rem;
 		color: $input_text;
 	}
 }

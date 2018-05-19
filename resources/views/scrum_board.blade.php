@@ -11,7 +11,6 @@
 @section('contenedor_principal')
 
 	<div class="boton_accion">
-
 		<input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
 	</div>
 
