@@ -1,34 +1,27 @@
 <aside class="navegacion_lateral">
-	<i class="toggle_navegacion icono_navegacion fas fa-times"></i>
+	<ul class="flex">
+		<div class="accion_navegacion_lateral">
+			<li class="flex centerY">
+				@yield('accion_navegacion_lateral')
+			</li>
+		</div>
 
-	<div class="encabezado_navegacion">
-		<p><span>DS</span><span>LAB</span></p>
-	</div>
-
-	<ul class="grupo_navegacion_items">
-	<li>
-		<a href="{{ route('ruta_proyectos') }}" class="navegacion_item">
-			<i class="fas fa-users"></i>
-			Proyectos
-		</a>
-	</li>
-		<li>
-			<a href="{{ route('scrum_board') }}" class="navegacion_item">
-				<i class="fa fa-table"></i>
-				Scrum Board
-			</a>
-		</li>
-		<li>
-			<a href="{{ route('burndown_chart') }}" class="navegacion_item">
-				<i class="far fa-chart-bar"></i>
-				Burndown Chart
-			</a>
-		</li>
-		<li>
-			<a href="{{ route('burndown_chart') }}" class="navegacion_item">
-				<i class="fas fa-cog"></i>
-				Duración Sprints
-			</a>
-		</li>
+		<div class="flex">
+			<li class="flex centerY">
+				<a href="{{ route('ruta_proyectos') }}">
+					Proyectos
+				</a>
+			</li>
+			<li class="flex centerY">
+				<a href="{{ route('scrum_board') }}">
+					Scrum Board
+				</a>
+			</li>
+			<li class="flex centerY">
+				<a href="{{ route('burndown_chart') }}">
+					Burndown Chart
+				</a>
+			</li>
+		</div>
 	</ul>
 </aside>

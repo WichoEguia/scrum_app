@@ -6,7 +6,6 @@ Route::group(['middleware' => ['auth']], function() {
 		return redirect('/proyectos');
 	});
 
-
 	Route::get('/proyectos', 'ProyectoController@index')->name('ruta_proyectos');
 	Route::get('/proyecto/nuevo', 'ProyectoController@create')->name('nuevo_proyecto');
 	Route::post('/proyectos', 'ProyectoController@store')->name('guardar_proyecto');
@@ -23,7 +22,13 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::patch('/historia/{historia}', 'HistoriaController@update');
 	Route::post('/actualiza_historia', 'HistoriaController@actualiza_estatus_tarea');
 	Route::get('/burndown_chart', 'HistoriaController@burndown_chart')->name('burndown_chart');
-	Route::get('/historia/{historia}/eliminar', 'HistoriaController@baja_proyecto');
+	Route::get('/historia/{historia}/eliminar', 'HistoriaController@baja_historia');
+
+	Route::get('/perfil', 'UserController@index')->name('perfil');
+	Route::get('/perfil/edit/{user}', 'UserController@edit')->name('editar_perfil');
+	Route::patch('/user/{user}', 'UserController@update');
 
 	Route::post('/actualizar_notificacion', 'MainController@actualizar_notificacion');
+	Route::post('/fin_sprint', 'MainController@fin_sprint');
+	Route::get('/sprint/{sprint}', 'MainController@ver_sprint');
 });

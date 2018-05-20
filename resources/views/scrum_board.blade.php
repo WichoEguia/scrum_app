@@ -1,15 +1,16 @@
 @extends('layouts.template_main')
 @section('titulo_vista', 'Scrum Board')
 
+@section('accion_navegacion_lateral')
+	<a href="{{ route("nueva_historia") }}">
+		<i class="fas fa-plus"></i>
+		Nueva Historia
+	</a>
+@endsection
+
 @section('contenedor_principal')
 
 	<div class="boton_accion">
-		<a class="boton" href="{{ route("nueva_historia") }}">
-			<div class="boton_icono">
-				<i class="fas fa-plus"></i>
-				Nueva Historia
-			</div>
-		</a>
 		<input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
 	</div>
 

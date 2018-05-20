@@ -1,15 +1,16 @@
 @extends('layouts/template_main')
 @section('titulo_vista', 'Proyectos')
 
+@section('accion_navegacion_lateral')
+	<a href="{{ route("nuevo_proyecto") }}">
+		<i class="fas fa-plus"></i>
+		Nuevo Proyecto
+	</a>
+@endsection
+
 @section('contenedor_principal')
 	<div class="cabecera_proyectos flex centerY">
 		<p>Selecciona un proyecto.</p>
-		<a class="boton" href="{{ route("nuevo_proyecto") }}">
-			<div class="boton_icono">
-				<i class="fas fa-plus"></i>
-				Nuevo Proyecto
-			</div>
-		</a>
 	</div>
 	<div class="proyectos_contenedor_xd">
 		<input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
@@ -19,16 +20,35 @@
 			@foreach ($proyectos as $proyecto)
 				<div class="tarjeta_proyecto flex">
 					<input type="hidden" class="id_proyecto" value="{{ $proyecto->id }}">
-					<div class="">
-						<img class="foto_proyecto" src="{{ asset('img/perfil_foto_prueba.jpg') }}" alt="">
-					</div>
 					<div class="datos_proyecto flex">
 						<div class="datos_proyecto_inner">
 							<p class="titulo_proyecto">{{ $proyecto->nombre }}</p>
 							<p class="descripcion_proyecto">{{ $proyecto->descripcion }}</p>
 						</div>
 						<div class="flex" style="justify-content: space-between;">
-							<p class="no_integrantes_proyecto">1 integrante</p>
+							<a href="#modal_listado_integrantes" rel="modal:open" class="accion_modal no_integrantes_proyecto">
+								{{ count($proyecto->users) }} Integrante{{ count($proyecto->users)  > 1 ? 's' : '' }}
+							</a>
+
+							{{-- <div id="modal_listado_integrantes" class="modal">
+								<p class="titulo_vista">Integrantes</p>
+								<ul>
+									@foreach ($proyecto->users as $user)
+										<li class="flex">
+											<div>
+												<p>{{ $user->name }}</p>
+												<p>{{ $user->email }}</p>
+											</div>
+
+											<div class="flex centerY">
+												@if ($proyecto->scrum_master == $user->id)
+													<p><i class="far fa-star"></i></p>
+												@endif
+											</div>
+										</li>
+									@endforeach
+								</ul>
+							</div> --}}
 
 							@if ($proyecto->es_scrum_master())
 								<div class="acciones_proyecto flex">

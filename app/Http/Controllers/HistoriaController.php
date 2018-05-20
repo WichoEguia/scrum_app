@@ -18,8 +18,18 @@ class HistoriaController extends Controller
      */
     public function index(Request $request)
     {
+				$historias = [];
 				$proyectos = Auth::User()->proyectos;
-				$historias = Sprint::find(Session::get('proyecto_id'))->historias->where('estatus', '!=', 'baja');
+
+				// TODO: Bloquear LINK en navegación
+				if (!Session::get('proyecto_id')) {
+					return redirect('/');
+				}
+
+				$sprint = Sprint::where('proyecto_id', Session::get('proyecto_id'))->where('estatus', 'activo')->first();
+				if (count($sprint) > 0) {
+					$historias = $sprint->historias->where('estatus', '!=', 'baja');
+				}
 
         return view("./scrum_board",[
 					"historias" => $historias,
@@ -65,17 +75,6 @@ class HistoriaController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -100,43 +99,59 @@ class HistoriaController extends Controller
 			return redirect("/scrumboard");
     }
 
-    /**
-     * Remove the specified resource from storage.
+		/**
+     * Actualiza estatus de cierta tarea.
      *
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
-    }
-
-		public function actualiza_estatus_tarea(Request $request){
+    public function actualiza_estatus_tarea(Request $request){
 			$historia = Historia::find($request->historia_id);
 			$historia->estatus = $request->estado;
 			$historia->save();
 		}
 
-		public function burndown_chart(){
+		/**
+		 * burndown_chart
+		 *
+     * Carga vista para dibujar burndown chart.
+     */
+    public function burndown_chart(){
+			if (!Session::get('proyecto_id')) {
+				return redirect('/');
+			}
+
 			$puntos_esfuerzo = [];
 			$fechas = [];
-			$historias_terminadas = Auth::User()->historias->where('estatus', 'done');
-			$puntos_esfuerzo_total = Sprint::where('proyecto_id', Session::get('proyecto_id'))->first()->puntos_esfuerzo;
+			$sprint = Sprint::where('proyecto_id', Session::get('proyecto_id'))->where('estatus', 'activo')->first();
+			$historias_terminadas = $sprint->historias->where('estatus', 'done')->sortByDesc('updated_at')->reverse();
+			$puntos_esfuerzo_total = $sprint->puntos_esfuerzo;
+			$proyecto = Proyecto::find(Session::get('proyecto_id'));
+			$sprints = Sprint::where('proyecto_id', Session::get('proyecto_id'))->where('estatus', 'cancelado')->get();
 
 			foreach ($historias_terminadas as $historia) {
 				array_push($puntos_esfuerzo, $historia["estimacion"]);
 				array_push($fechas, $historia["updated_at"]->format('Y-m-d'));
 			}
-			// dd($fechas);
+			// dd($sprint_actual);
 
 	  	return view('/historias/burndown_chart', [
 				'puntos_esfuerzo' => json_encode($puntos_esfuerzo),
 				'fechas' => json_encode($fechas),
-				'puntos_esfuerzo_total' => $puntos_esfuerzo_total
+				'puntos_esfuerzo_total' => $puntos_esfuerzo_total,
+				'proyecto' => $proyecto,
+				'sprint_actual' => $sprint,
+				'sprints' => $sprints
 			]);
 		}
 
-		public function baja_proyecto(Historia $historia){
+		/**
+		 * baja_historia
+		 *
+     * Dar de baja una historia.
+		 * @param Mixed $historia
+     */
+    public function baja_historia(Historia $historia){
 		  $historia->estatus = "baja";
 			$historia->save();
 			return redirect('/scrumboard');

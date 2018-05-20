@@ -2,10 +2,14 @@
 	<div class="contenedor_cabecera">
 		<div class="toggle_navegacion flex centerY">
 			@auth
-				<i class="fa fa-bars"></i>
 				<div class="titulo--proyecto flex">
 					<span class="titulo_vista">@yield('titulo_vista')</span>
-					<span class="nombre_proyecto">Proyecto: {{ Session::get('proyecto_nombre') }}</span>
+					@if (Session::get('proyecto_nombre'))
+						<span class="nombre_proyecto">Proyecto: {{ Session::get('proyecto_nombre') }}</span>
+						<span class="sprint_actual">Sprint: {{ substr(Session::get('sprint_actual')->created_at, 0, 10) }}</span>
+					@else
+						<span class="nombre_proyecto"></span>
+					@endif
 				</div>
 			@endauth
 
@@ -18,7 +22,7 @@
 			<div class="datos_usuario_cabecera">
 					<div class="foto_perfil">
 						<div data-badge="{{ Auth::User()->numero_notificaciones() }}">
-							<img src="{{ asset('img/perfil_foto_prueba.jpg') }}">
+							<img src="{{ asset(Auth::User()->userphoto) }}">
 						</div>
 					</div>
 					<span>{{ Auth::user()->name }}</span>
@@ -39,9 +43,11 @@
 
 <div class="panel_opciones_usuario">
 	<div class="flex">
-		<div class="opcion_usuario_item flex centerX centerY">
-			<i class="fas fa-address-card"></i>
-		</div>
+		<a href="{{ route('perfil') }}">
+			<div class="opcion_usuario_item flex centerX centerY">
+				<i class="fas fa-address-card"></i>
+			</div>
+		</a>
 
 		<a href="#modal_notificaciones" rel="modal:open" class="accion_modal">
 			<div class="opcion_usuario_item flex centerX centerY">

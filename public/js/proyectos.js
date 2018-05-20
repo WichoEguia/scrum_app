@@ -12,7 +12,13 @@ function Proyectos(){
 	var eventos = function(){
 		$(".datos_proyecto_inner").off();
 		$(".formulario_crear_proyectos").off();
+		$(".modal_agregar_nuevo_integrante_proyecto").off();
+		$(".no_integrantes_proyecto").off();
 		$("#invitar_usuario_proyecto").off();
+
+		$(".modal_agregar_nuevo_integrante_proyecto").click(function(){
+			localStorage.setItem('id_proyecto_compartido', $(this).parent().parent().parent().parent().children(".id_proyecto").val());
+		});
 
 		$(".datos_proyecto_inner").click(function(){
 			var id_proyecto = $(this).parent().parent().children(".id_proyecto").val();
@@ -49,7 +55,8 @@ function Proyectos(){
 		    async : true,
 		    data : {
 					_token: $('#token').val(),
-					correo_usuario: $("#correo_usuario").val()
+					correo_usuario: $("#correo_usuario").val(),
+					id_proyecto_compartido: localStorage.getItem('id_proyecto_compartido')
 				}
 			}).done(function(data){
 				if (!data.resultado) {
