@@ -22,6 +22,7 @@
 							<p class='importancia'>{{ $historia->importancia }}</p>
 							<p class='estimacion'>{{ $historia->estimacion > 0.5 ? $historia->estimacion : '1/2' }}</p>
 						</div>
+						<p class="estimacion">Terminado el día {{ substr($historia->updated_at, 0, 10) }}</p>
 					</div>
 				</div>
 			@endforeach

@@ -13,13 +13,16 @@
 @section('contenedor_principal')
 
 	<br>
-	<a href="#modal_lista_sprints" rel="modal:open" style="margin-left: 20px;" class="boton accion_modal">
-		<i class="fas fa-list-alt"></i>
-		Historial Sprints
-	</a>
+	@if (count($sprints) > 0)
+		<a href="#modal_lista_sprints" rel="modal:open" style="margin-left: 20px;" class="boton accion_modal">
+			<i class="fas fa-list-alt"></i>
+			Historial Sprints
+		</a>
+	@endif
 	<br><br><br>
 
 	<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+	<br><br><br>
 
 	<div id="modal_lista_sprints" class="modal">
 		<p class="titulo_vista">Sprints</p>
