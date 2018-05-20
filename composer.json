@@ -51,8 +51,8 @@
         ],
 				"post-install-cmd": [
 			     "php artisan clear-compiled",
-			     "chmod -R 777 /"
-			  ]
+			     "chmod -R 777 public/"
+			 	]
     },
     "config": {
         "preferred-install": "dist",
