@@ -11,6 +11,12 @@ use Illuminate\Support\Facades\Auth;
 
 class MainController extends Controller
 {
+	/**
+	 * actualizar_notificacion
+	 *
+	 * Actualiza notificación leida
+	 * @param Mixed $request
+	 */
 	public function actualizar_notificacion(Request $request){
 		$resultado["resultado"] = false;
 
@@ -26,6 +32,12 @@ class MainController extends Controller
 		return $resultado;
 	}
 
+	/**
+	 * fin_sprint
+	 *
+	 * Finaliza el sprint en curso
+	 * @param Mixed $request
+	 */
 	public function fin_sprint(Request $request){
 		// dd($request->all());
 		$sprint = Sprint::find($request->sprint);
@@ -47,6 +59,12 @@ class MainController extends Controller
 		return redirect("/scrumboard");
 	}
 
+	/**
+	 * var_sprint
+	 *
+	 * Permite ver un sprint terminado
+	 * @param Mixed $request
+	 */
 	public function ver_sprint(Sprint $sprint){
 		$historias = Sprint::find($sprint->id)->historias;
 	  return view('./sprints/show', [

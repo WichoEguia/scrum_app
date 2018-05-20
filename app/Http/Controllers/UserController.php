@@ -11,7 +11,12 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-  public function index(){
+	/**
+	 * index
+	 *
+	 * Muestra perfile del usuario
+	 */
+	public function index(){
 		$usuario = Auth::User();
 		$proyectos = Auth::User()->proyectos;
 
@@ -20,10 +25,20 @@ class UserController extends Controller
 		);
   }
 
+	/**
+	 * edit
+	 *
+	 * Edita un usuario
+	 */
 	public function edit(User $user){
 	  return view('usuarios/edit', ['user' => $user]);
 	}
 
+	/**
+	 * update
+	 *
+	 * Actualiza datos del usuario
+	 */
 	public function update(Request $request, User $user){
 		if ($request->file('userphoto')) {
 			Storage::delete($user->userphoto);

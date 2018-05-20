@@ -75,17 +75,6 @@ class HistoriaController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -110,24 +99,24 @@ class HistoriaController extends Controller
 			return redirect("/scrumboard");
     }
 
-    /**
-     * Remove the specified resource from storage.
+		/**
+     * Actualiza estatus de cierta tarea.
      *
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
-    }
-
-		public function actualiza_estatus_tarea(Request $request){
+    public function actualiza_estatus_tarea(Request $request){
 			$historia = Historia::find($request->historia_id);
 			$historia->estatus = $request->estado;
 			$historia->save();
 		}
 
-		public function burndown_chart(){
+		/**
+		 * burndown_chart
+		 *
+     * Carga vista para dibujar burndown chart.
+     */
+    public function burndown_chart(){
 			if (!Session::get('proyecto_id')) {
 				return redirect('/');
 			}
@@ -156,7 +145,13 @@ class HistoriaController extends Controller
 			]);
 		}
 
-		public function baja_proyecto(Historia $historia){
+		/**
+		 * baja_historia
+		 *
+     * Dar de baja una historia.
+		 * @param Mixed $historia
+     */
+    public function baja_historia(Historia $historia){
 		  $historia->estatus = "baja";
 			$historia->save();
 			return redirect('/scrumboard');

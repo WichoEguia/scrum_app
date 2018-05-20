@@ -38,6 +38,14 @@ class User extends Authenticatable
 		  return $this->hasMany('App\Notificacion');
 		}
 
+		/**
+		 * numero_notificaciones
+		 *
+		 * Obtiene el numero de notificaciones
+		 * de un usuario
+		 *
+		 * @return String
+		*/
 		public function numero_notificaciones(){
 		  $numero_notificaciones = count($this->notificaciones->where('estatus', 'no_leido'));
 			return $numero_notificaciones > 9 ? "+9" : $numero_notificaciones;

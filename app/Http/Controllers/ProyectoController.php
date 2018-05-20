@@ -12,17 +12,32 @@ use Illuminate\Support\Facades\Auth;
 
 class ProyectoController extends Controller
 {
-		public function index(){
+	/**
+	 * index
+	 *
+	 * Despliega proyectos
+	 */
+	public function index(){
 		  $proyectos = Auth::User()->proyectos;
 			return view('./proyectos/index', [
 				'proyectos' => $proyectos
 			]);
 		}
 
-    public function create(){
+		/**
+		 * create
+		 *
+		 * Crea nuevo proyecto
+		 */
+		public function create(){
       return view("./proyectos/create");
     }
 
+		/**
+		 * store
+		 *
+		 * Guarda un nuevo proyecto
+		 */
 		public function store(Request $request){
 			$proyecto = Proyecto::create($request->all());
 			$proyecto->users()->attach(Auth::User());
@@ -39,22 +54,43 @@ class ProyectoController extends Controller
 			return redirect("/proyectos");
 		}
 
+		/**
+		 * edit
+		 *
+		 * Permite editar proyecto
+		 */
 		public function edit(Proyecto $proyecto){
 			return view("./proyectos/edit", ["proyecto" => $proyecto]);
 		}
 
+		/**
+		 * update
+		 *
+		 * Guarda cambios en un proyecto
+		 */
 		public function update(Proyecto $proyecto){
 		  $proyecto->update(request()->all());
 
 			return redirect("/proyectos");
 		}
 
+		/**
+		 * destroy
+		 *
+		 * Elimina un proyecto
+		 */
 		public function destroy(Proyecto $proyecto){
 		  $proyecto->delete();
 
 			return redirect("/proyectos");
 		}
 
+		/**
+		 * asociar_proyecto_usuario
+		 *
+		 * Crea las variables de seción de un proyecto nuevo
+		 * @param Mixed $request
+		 */
 		public function asociar_proyecto_usuario(Request $request){
 			Session::put('user_id', Auth::User()->id);
 			Session::put('proyecto_id', $request->proyecto_id);
@@ -63,6 +99,13 @@ class ProyectoController extends Controller
 			return Session::get('proyecto_nombre');
 		}
 
+		/**
+		 * invitar_usuario_proyecto
+		 *
+		 * Invita a un nuevo usuaro en el proyecto
+		 * @param Mixed $request
+		 * @return Boolean $resultado
+		 */
 		public function invitar_usuario_proyecto(Request $request){
 			$resultado["resultado"] = false;
 		  $usuario = User::where('email', $request->correo_usuario)->get();
