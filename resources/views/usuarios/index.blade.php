@@ -13,9 +13,9 @@
 
 
 	<div id="contenedor_proyectos_perfil">
-		@if (count((array)$proyectos) > 0)
+		@if (count($proyectos) > 0)
 			<p class="titulo_proyectos_perfil">Proyectos</p>
-			@for ($i=0; $i < count((array)$proyectos); $i++)
+			@for ($i=0; $i < count($proyectos); $i++)
 				<div class="contenedor_proyecto_perfil">
 					@if ($proyectos[$i]->es_scrum_master())
 						<div class="flex">

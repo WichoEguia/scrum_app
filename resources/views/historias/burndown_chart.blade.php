@@ -13,7 +13,7 @@
 @section('contenedor_principal')
 
 	<br>
-	@if (count((array)$sprints) > 0)
+	@if (count($sprints) > 0)
 		<a href="#modal_lista_sprints" rel="modal:open" style="margin-left: 20px;" class="boton accion_modal">
 			<i class="fas fa-list-alt"></i>
 			Historial Sprints
