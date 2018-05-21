@@ -44,7 +44,7 @@ class ProyectoController extends Controller
 
 			$sprint = new Sprint();
 			$sprint->puntos_esfuerzo = 0;
-			$sprint->proyecto_id = Session::get('proyecto_id');
+			$sprint->proyecto_id = $proyecto->id;
 			$sprint->save();
 
 			Session::put('proyecto_id', $proyecto->id);
@@ -110,11 +110,11 @@ class ProyectoController extends Controller
 			$resultado["resultado"] = false;
 		  $usuario = User::where('email', $request->correo_usuario)->get();
 
-			if (count($usuario) > 0) {
+			if (count((array)$usuario) > 0) {
 				$usuario_sesion = Auth::User();
 				if ($usuario[0]->email != $usuario_sesion->email) {
 					$proyecto = Proyecto::find($request->id_proyecto_compartido);
-					for ($i=0; $i < count($proyecto->users); $i++) {
+					for ($i=0; $i < count((array)$proyecto->users); $i++) {
 						$pase = ($usuario[0]->id != $proyecto->users->get($i)->id) ? true : false;
 					}
 					if ($pase) {
