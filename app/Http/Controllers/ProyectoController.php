@@ -44,7 +44,7 @@ class ProyectoController extends Controller
 
 			$sprint = new Sprint();
 			$sprint->puntos_esfuerzo = 0;
-			$sprint->proyecto_id = Session::get('proyecto_id');
+			$sprint->proyecto_id = $proyecto->id;
 			$sprint->save();
 
 			Session::put('proyecto_id', $proyecto->id);
