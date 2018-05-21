@@ -14,6 +14,7 @@
 	</div>
 	<div class="proyectos_contenedor_xd">
 		<input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
+		{{ dd($proyectos) }}
 		@if (count((array)$proyectos) > 0)
 			@include('./proyectos/_modales')
 
