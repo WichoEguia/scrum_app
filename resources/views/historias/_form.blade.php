@@ -21,7 +21,7 @@
 		<?php $opciones = ["0","1/2","1","2","3","5","8","13","20","40","100"]; ?>
 		<select id="historia_estimacion" name="estimacion" value="{{ isset($historia) ? $historia->estimacion : '' }}">
 			<option selected disabled>Selecciona</option>
-			@for ($i=0; $i < count($opciones); $i++)
+			@for ($i=0; $i < count((array)$opciones); $i++)
 				<option value="{{ $opciones[$i] == "1/2" ? "0.5" : $opciones[$i] }}">
 					{{ $opciones[$i] }}
 				</option>

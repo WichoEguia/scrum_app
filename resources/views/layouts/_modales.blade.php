@@ -1,7 +1,7 @@
 <div id="modal_notificaciones" class="modal">
 	<p class="titulo_vista">Notificaciones</p>
 	<input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
-	@if (count($notificaciones) > 0)
+	@if (count((array)$notificaciones) > 0)
 		@foreach ($notificaciones as $notificacion)
 			@if ($notificacion->estatus == 'no_leido')
 

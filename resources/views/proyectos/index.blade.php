@@ -14,7 +14,7 @@
 	</div>
 	<div class="proyectos_contenedor_xd">
 		<input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
-		@if (count($proyectos) > 0)
+		@if (count((array)$proyectos) > 0)
 			@include('./proyectos/_modales')
 
 			@foreach ($proyectos as $proyecto)
@@ -27,7 +27,7 @@
 						</div>
 						<div class="flex" style="justify-content: space-between;">
 							<a href="#modal_listado_integrantes" rel="modal:open" class="accion_modal no_integrantes_proyecto">
-								{{ count($proyecto->users) }} Integrante{{ count($proyecto->users)  > 1 ? 's' : '' }}
+								{{ count((array)$proyecto->users) }} Integrante{{ count((array)$proyecto->users)  > 1 ? 's' : '' }}
 							</a>
 
 							{{-- <div id="modal_listado_integrantes" class="modal">
