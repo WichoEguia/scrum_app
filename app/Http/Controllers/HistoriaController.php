@@ -28,7 +28,7 @@ class HistoriaController extends Controller
 
 				$sprint = Sprint::where('proyecto_id', Session::get('proyecto_id'))->where('estatus', 'activo');
 				// dd($sprint);
-				if (count($sprint) > 0) {
+				if (count((array)$sprint) > 0) {
 					$historias = $sprint->first()->historias->where('estatus', '!=', 'baja');
 				}
 
