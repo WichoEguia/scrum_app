@@ -47,7 +47,7 @@ class User extends Authenticatable
 		 * @return String
 		*/
 		public function numero_notificaciones(){
-		  $numero_notificaciones = count($this->notificaciones->where('estatus', 'no_leido'));
+		  $numero_notificaciones = count((array)$this->notificaciones->where('estatus', 'no_leido'));
 			return $numero_notificaciones > 9 ? "+9" : $numero_notificaciones;
 		}
 }

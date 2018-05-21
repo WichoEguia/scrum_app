@@ -21,7 +21,7 @@ class MainController extends Controller
 		$resultado["resultado"] = false;
 
 	  $notificacion = Notificacion::find($request->id_notificacion);
-		if (count($notificacion) > 0) {
+		if (count((array)$notificacion) > 0) {
 			$resultado["resultado"] = true;
 
 			$notificacion->estatus = "leido";

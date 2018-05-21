@@ -26,10 +26,10 @@ class HistoriaController extends Controller
 					return redirect('/');
 				}
 
-				$sprint = Sprint::where('proyecto_id', Session::get('proyecto_id'))->where('estatus', 'activo')->first();
-				dd($sprint);
-				if (count($sprint) > 0) {
-					$historias = $sprint->historias->where('estatus', '!=', 'baja');
+				$sprint = Sprint::where('proyecto_id', Session::get('proyecto_id'))->where('estatus', 'activo');
+				// dd($sprint);
+				if (count((array)$sprint) > 0) {
+					$historias = $sprint->first()->historias->where('estatus', '!=', 'baja');
 				}
 
         return view("./scrum_board",[
