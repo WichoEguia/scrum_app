@@ -7,22 +7,25 @@
 		<p id="titulo_historias_sprint">Historias terminadas</p>
 		<div id="contenedor_historias">
 			@foreach ($historias as $historia)
-				<div class='tarjeta_historia' id={{ $historia->id }}>
-					<div class='idhistoria flex'>
-						<div class='flex centerX centerY'>
-							<p>{{ $historia->id }}</p>
+				<div class='flex tarjeta_historia' id={{ $historia->id }}>
+					<div>
+						<div class='idhistoria flex'>
+							<div class='flex centerX centerY'>
+								<p>{{ $historia->id }}</p>
+							</div>
+						</div>
+						<p class='historia_titulo'>{{ $historia->titulo }}</p>
+						<div class='historia_descripcion'>
+							<p>{{ $historia->descripcion }}</p>
 						</div>
 					</div>
-					<p class='historia_titulo'>{{ $historia->titulo }}</p>
-					<div class='historia_descripcion'>
-						<p>{{ $historia->descripcion }}</p>
-					</div>
-					<div class='flex acciones_historia'>
+					<div class='acciones_historia'>
 						<div class='flex'>
 							<p class='importancia'>{{ $historia->importancia }}</p>
 							<p class='estimacion'>{{ $historia->estimacion > 0.5 ? $historia->estimacion : '1/2' }}</p>
 						</div>
-						<p class="estimacion">Terminado el día {{ substr($historia->updated_at, 0, 10) }}</p>
+						<p class="fechas_avance">Inicio el {{ substr($historia->created_at, 0, 10) }}</p>
+						<p class="fechas_avance">Terminado el {{ substr($historia->updated_at, 0, 10) }}</p>
 					</div>
 				</div>
 			@endforeach

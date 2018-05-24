@@ -11,6 +11,11 @@
 		grid-template-rows: repeat(auto-fit, 170px);
 		column-gap: 20px;
 		padding: 0 20px;
+
+		.tarjeta_historia{
+			flex-direction: column;
+			justify-content: space-between;
+		}
 	}
 
 	#titulo_historias_sprint{
@@ -25,4 +30,9 @@
 	color: $input_text;
 	@include box-shadow(1);
 	margin: 10px 0;
+}
+
+.fechas_avance{
+	font-size: .8rem;
+	color: $main_color;
 }

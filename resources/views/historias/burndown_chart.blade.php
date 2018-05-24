@@ -28,7 +28,7 @@
 		<p class="titulo_vista">Sprints</p>
 		@foreach ($sprints as $sprint)
 			<a href="/sprint/{{ $sprint->id }}" class="tarjeta_sprint">
-				<p>Sprint {{ $sprint->id }}</p>
+				<p>Sprint id: {{ $sprint->id }}</p>
 				<p>{{ "De " . substr($sprint->created_at, 0, 10) . " a " . substr($sprint->updated_at, 0, 10) }}</p>
 			</a>
 		@endforeach
