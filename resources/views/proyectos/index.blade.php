@@ -30,7 +30,7 @@
 								{{ count($proyecto->users) }} Integrante{{ count($proyecto->users)  > 1 ? 's' : '' }}
 							</a>
 
-							{{-- <div id="modal_listado_integrantes" class="modal">
+							<div id="modal_listado_integrantes" class="modal">
 								<p class="titulo_vista">Integrantes</p>
 								<ul>
 									@foreach ($proyecto->users as $user)
@@ -48,7 +48,7 @@
 										</li>
 									@endforeach
 								</ul>
-							</div> --}}
+							</div>
 
 							@if ($proyecto->es_scrum_master())
 								<div class="acciones_proyecto flex">
