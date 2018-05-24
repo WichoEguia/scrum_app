@@ -26,11 +26,11 @@
 							<p class="descripcion_proyecto">{{ $proyecto->descripcion }}</p>
 						</div>
 						<div class="flex" style="justify-content: space-between;">
-							<a href="#modal_listado_integrantes" rel="modal:open" class="accion_modal no_integrantes_proyecto">
+							<a href="#modal_listado_integrantes{{ $proyecto->id }}" rel="modal:open" class="accion_modal no_integrantes_proyecto">
 								{{ count($proyecto->users) }} Integrante{{ count($proyecto->users)  > 1 ? 's' : '' }}
 							</a>
 
-							<div id="modal_listado_integrantes" class="modal">
+							<div id="modal_listado_integrantes{{ $proyecto->id }}" class="modal_listado_integrantes modal">
 								<p class="titulo_vista">Integrantes</p>
 								<ul>
 									@foreach ($proyecto->users as $user)
