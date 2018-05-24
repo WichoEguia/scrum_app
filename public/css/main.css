@@ -581,26 +581,26 @@ input[type="file"] + label:hover {
   text-align: center;
 }
 
-#modal_listado_integrantes li {
+.modal_listado_integrantes li {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   margin: 10px 0;
   padding: 10px;
   justify-content: space-between;
 }
 
-#modal_listado_integrantes li:last-child {
+.modal_listado_integrantes li:last-child {
   margin-bottom: 0;
 }
 
-#modal_listado_integrantes li p {
+.modal_listado_integrantes li p {
   color: #FD643B;
 }
 
-#modal_listado_integrantes li p:last-child {
+.modal_listado_integrantes li p:last-child {
   color: #535353;
 }
 
-#modal_listado_integrantes li div:last-child > p {
+.modal_listado_integrantes li div:last-child > p {
   color: #FD643B;
   font-size: .8rem;
 }
