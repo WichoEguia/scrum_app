@@ -34,6 +34,27 @@
 		@endforeach
 	</div>
 
+	<a href="#modal_historias_fecha" id="modal_modal_historias_fecha" rel="modal:open" class="accion_modal"></a>
+	<div id="modal_listado_integrantes{{ $proyecto->id }}" class="modal_listado_integrantes modal">
+		<p class="titulo_vista">Integrantes</p>
+		<ul>
+			{{-- @foreach ($proyecto->users as $user)
+				<li class="flex">
+					<div>
+						<p>{{ $user->name }}</p>
+						<p>{{ $user->email }}</p>
+					</div>
+
+					<div class="flex centerY">
+						@if ($proyecto->scrum_master == $user->id)
+							<p><i class="far fa-star"></i></p>
+						@endif
+					</div>
+				</li>
+			@endforeach --}}
+		</ul>
+	</div>
+
 	<form id="form_fin_sprint" action="/fin_sprint" method="post" style="display: none;">
 		{{ csrf_field() }}
 		<input type="text" name="sprint" value="{{ $sprint_actual->id }}">
