@@ -88,6 +88,73 @@ function Historias(){
 
 		$(function () {
 		  $('#container').highcharts({
+				chart:{
+          events:{
+            click:function(e){
+							window.location.href = base_url + "/historia_terminadas_fecha/" + window.location.href.split('/')[4] + "/" + fechas[Math.floor(e.xAxis[0].value)];
+              // alert('x: ' + fechas[Math.floor(e.xAxis[0].value)]);
+							// $.ajax({
+							//     method : "POST",
+							//     url : base_url + "/historia_terminadas_fecha",
+							//     async : false,
+							//     data : {
+							// 			_token : $("#token").val(),
+							// 			fecha : fechas[Math.floor(e.xAxis[0].value)],
+							// 			sprint_id : window.location.href.split('/')[4]
+							// 		}
+							// }).done(function(data){
+								// console.log(data);
+								// <div id="modal_historias_fecha" class="modal">
+								// <p class="titulo_vista">Integrantes</p>
+								// 	<ul>
+								// 		@foreach ($proyecto->users as $user)
+								// 			<li class="flex">
+								// 				<div>
+								// 					<p>{{ $user->name }}</p>
+								// 					<p>{{ $user->email }}</p>
+								// 				</div>
+								//
+								// 				<div class="flex centerY">
+								// 					@if ($proyecto->scrum_master == $user->id)
+								// 						<p><i class="far fa-star"></i></p>
+								// 					@endif
+								// 				</div>
+								// 			</li>
+								// 		@endforeach
+								// 	</ul>
+								// </div>
+								// c = "";
+								// c += '<div id="modal_historias_fecha" class="modal">';
+								// c += '	<p class="titulo_vista">Historias</p>';
+								// c += '	<ul>';
+								// for (var i = 0; i < data.length; i++) {
+								// 	c += '<li class="flex">';
+								// 	c += '	<div>';
+								// 	c += ' 		<p>' + data[i].titulo + '</p>';
+								// 	c += ' 		<p>' + data[i].descripcion + '</p>';
+								// 	c += '	</div>';
+								// 	c += '</li>';
+								// }
+								// c += '	</ul>';
+								// c += '</div>';
+
+								// $('body').html(c);
+								// $("#modal_modal_historias_fecha").click();
+
+								// var a = document.createElement('a');
+								// var linkText = document.createTextNode("my title text");
+								// a.appendChild(linkText);
+								// a.title = "my title text";
+								// a.href = "#modal_historias_fecha";
+								// a.rel = "modal:open";
+								// a.class = "accion_modal";
+								// a.click();
+								// a.remove();
+								// document.body.appendChild(a);
+							// });
+            }
+          }
+        },
 		    title: {
 		      text: 'Burndown Chart',
 		      x: -20 //center
