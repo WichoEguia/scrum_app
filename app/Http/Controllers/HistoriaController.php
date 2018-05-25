@@ -157,4 +157,16 @@ class HistoriaController extends Controller
 			$historia->save();
 			return redirect('/scrumboard');
 		}
+
+		public function historia_terminadas_fecha(Sprint $sprint, $fecha){
+			$sprint_id = $sprint->id;
+			$historias = Sprint::find($sprint_id)->historias()->whereDate('updated_at', '=', $fecha)->get();
+			// dd($historias[0]->titulo);
+			// return $historias;
+			return view('./sprints/historias', [
+				"historias" => $historias,
+				"fecha" => $fecha,
+				"sprint" => $sprint_id
+			]);
+		}
 }

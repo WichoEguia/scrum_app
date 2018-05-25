@@ -23,6 +23,7 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::post('/actualiza_historia', 'HistoriaController@actualiza_estatus_tarea');
 	Route::get('/burndown_chart', 'HistoriaController@burndown_chart')->name('burndown_chart');
 	Route::get('/historia/{historia}/eliminar', 'HistoriaController@baja_historia');
+	Route::get('/historia_terminadas_fecha/{sprint}/{fecha}', 'HistoriaController@historia_terminadas_fecha');
 
 	Route::get('/perfil', 'UserController@index')->name('perfil');
 	Route::get('/perfil/edit/{user}', 'UserController@edit')->name('editar_perfil');
